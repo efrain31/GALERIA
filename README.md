@@ -1,36 +1,86 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🎨 GALERIA DE ARTE
 
-## Getting Started
+Portfolio web moderno para una galería de arte, construido con **Next.js 16**, **React 19**, y **Material-UI 9**.
 
-First, run the development server:
+## 🚀 Características
+
+- ✨ Diseño oscuro minimalista
+- 📱 Responsive (mobile, tablet, desktop)
+- 🖼️ Galería de imágenes con grid masonry
+- 🎬 Animaciones fluidas con Framer Motion
+- 📸 Almacenamiento de imágenes en Vercel Blob
+- 🌐 Bilingüe (ES/EN)
+- ⚡ Optimizado para Vercel
+
+## 📦 Stack Tecnológico
+
+- **Next.js 16.2.9** - App Router
+- **React 19.2.4** - UI Framework
+- **TypeScript 5** - Type safety
+- **Material-UI 9** - Component library
+- **Tailwind CSS 4** - Utility CSS
+- **Framer Motion 12** - Animations
+- **Vercel Blob** - Image storage
+- **Vercel Speed Insights** - Performance monitoring
+
+## 🛠️ Instalación
+
+```bash
+npm install
+```
+
+## 🚀 Desarrollo
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+# Abre http://localhost:3000
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🏗️ Build
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+npm run build
+npm run start
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 📝 Lint
 
-## Learn More
+```bash
+npm run lint
+```
 
-To learn more about Next.js, take a look at the following resources:
+## 📂 Estructura
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```
+app/                       # Next.js App Router
+components/                # Componentes reutilizables
+├── Navbar/
+├── Footer/
+├── Icons/
+└── galerias/
+Page/                      # Componentes de página
+├── Photography/
+├── Works/
+├── Info/
+└── Modelings/
+data/                      # Gestión de datos
+└── data.ts, routes.ts
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 🔗 Deployment en Vercel
 
-## Deploy on Vercel
+1. Sube el repositorio a GitHub
+2. Conecta en [vercel.com](https://vercel.com)
+3. Configura variables de entorno `.env`
+4. Deploy automático
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 📝 Próximos pasos
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+1. Reemplaza URLs de imágenes en `data/data.ts`
+2. Actualiza redes sociales en `components/Icons/Socialicons.tsx`
+3. Modifica contenido en `Page/` componentes
+4. Sube a Vercel para deployment
+
+## 📧 Contacto
+
+administrador@geovoy.com

@@ -1,0 +1,68 @@
+╔════════════════════════════════════════════════════════════╗
+║       GALERIA DE ARTE - GUIA DE ARRANQUE                    ║
+╚════════════════════════════════════════════════════════════╝
+
+1. INSTALACIÓN INICIAL
+   ────────────────────
+   npm install
+
+2. DESARROLLO LOCAL
+   ─────────────────
+   npm run dev
+
+   Abre: http://localhost:3000
+
+3. BUILD PARA PRODUCCIÓN
+   ──────────────────────
+   npm run build
+   npm run start
+
+4. LINT Y VALIDACIÓN
+   ──────────────────
+   npm run lint
+
+5. CONFIGURACIÓN IMPORTANTE
+   ────────────────────────
+
+   a) Variables de entorno (.env):
+      - NEXT_PUBLIC_VERCEL_BLOB_TOKEN
+      - NEXT_PUBLIC_APP_URL
+
+   b) Imágenes (data/data.ts):
+      - Agrega URLs de imágenes
+      - Actualiza títulos y descripciones
+
+   c) Redes sociales (components/Icons/Socialicons.tsx):
+      - Actualiza URLs de redes sociales
+
+6. ESTRUCTURA PRINCIPAL
+   ────────────────────
+
+   app/              → Rutas de Next.js
+   components/       → Componentes reutilizables
+   Page/             → Componentes de página
+   data/             → Datos e imágenes
+
+7. DEPLOYMENT EN VERCEL
+   ────────────────────
+   1. Sube a GitHub
+   2. Conecta en vercel.com
+   3. Configura env vars
+   4. Deploy automático
+
+8. COMPONENTES LISTOS
+   ──────────────────
+   ✓ Navbar con menú bilingüe
+   ✓ Footer con redes sociales
+   ✓ Grid de galería responsivo
+   ✓ Sistema de rutas dinámicas
+   ✓ Tema oscuro
+
+9. PRÓXIMOS PASOS
+   ──────────────
+   1. Agregar imágenes a data/data.ts
+   2. Personalizar contenido
+   3. Actualizar redes sociales
+   4. Hacer push a Vercel
+
+¡Listo para empezar! 🚀
