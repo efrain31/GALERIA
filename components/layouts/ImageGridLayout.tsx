@@ -29,13 +29,12 @@ export default function ImageGridLayout({
             gridTemplateColumns: { xs: "1fr", md: "repeat(3, 1fr)" },
             gap: 3,
             mb: 6,
-          }
-  );}
+          }}
         >
           {[1, 2, 3, 4, 5, 6].map((item) => (
             <Box
               key={item}
-                onClick={() => lightbox.openLightbox(item)}
+              onClick={() => lightbox.openLightbox(item)}
               sx={{
                 width: "100%",
                 paddingBottom: "70%",
@@ -49,11 +48,9 @@ export default function ImageGridLayout({
                 transition: "transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94)",
                 "&:hover": {
                   transform: "scale(1.15)",
-                }
-  );,
+                },
                 overflow: "hidden",
-              }
-  );}
+              }}
             />
           ))}
         </Box>
@@ -65,8 +62,7 @@ export default function ImageGridLayout({
             gridTemplateColumns: { xs: "1fr", md: "1fr 1fr" },
             gap: { xs: 3, md: 6 },
             alignItems: "flex-start",
-          }
-  );}
+          }}
         >
           <h2
             style={{
@@ -77,8 +73,7 @@ export default function ImageGridLayout({
               fontWeight: 700,
               textTransform: "uppercase",
               lineHeight: 1.4,
-            }
-  );}
+            }}
           >
             {title}
           </h2>
@@ -89,8 +84,7 @@ export default function ImageGridLayout({
               lineHeight: 1.8,
               color: "#2a2a2a",
               margin: 0,
-            }
-  );}
+            }}
           >
             {description}
           </p>

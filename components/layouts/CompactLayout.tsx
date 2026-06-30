@@ -89,26 +89,26 @@ export default function CompactLayout({
         </Box></Container>
 
 
-      {{/* Lightbox Modal */}}
+      {/* Lightbox Modal */}
       <LightboxModal
-        isOpen={{lightbox.lightboxOpen}}
-        imageUrl={{`/images/galeria/${{lightbox.selectedImage}}.png`}}
-        imageAlt={{`Imagen ${{lightbox.selectedImage}}`}}
-        zoom={{lightbox.zoom}}
-        pan={{lightbox.pan}}
-        isDragging={{lightbox.isDragging}}
-        containerRef={{lightbox.containerRef}}
-        imageRef={{lightbox.imageRef}}
-        onClose={{lightbox.closeLightbox}}
-        onZoomIn={{lightbox.zoomIn}}
-        onZoomOut={{lightbox.zoomOut}}
-        onReset={{lightbox.resetView}}
-        onMouseDown={{lightbox.handleMouseDown}}
-        onMouseMove={{lightbox.handleMouseMove}}
-        onMouseUp={{lightbox.handleMouseUp}}
-        onMouseLeave={{lightbox.handleMouseUp}}
-        MAX_ZOOM={{lightbox.MAX_ZOOM}}
-        MIN_ZOOM={{lightbox.MIN_ZOOM}}
+        isOpen={lightbox.lightboxOpen}
+        imageUrl={`/images/galeria/${lightbox.selectedImage}.png`}
+        imageAlt={`Imagen ${lightbox.selectedImage}`}
+        zoom={lightbox.zoom}
+        pan={lightbox.pan}
+        isDragging={lightbox.isDragging}
+        containerRef={lightbox.containerRef}
+        imageRef={lightbox.imageRef}
+        onClose={lightbox.closeLightbox}
+        onZoomIn={lightbox.zoomIn}
+        onZoomOut={lightbox.zoomOut}
+        onReset={lightbox.resetView}
+        onMouseDown={lightbox.handleMouseDown}
+        onMouseMove={lightbox.handleMouseMove}
+        onMouseUp={lightbox.handleMouseUp}
+        onMouseLeave={lightbox.handleMouseUp}
+        MAX_ZOOM={lightbox.MAX_ZOOM}
+        MIN_ZOOM={lightbox.MIN_ZOOM}
       />
     </Box>
   );

@@ -1,6 +1,5 @@
 "use client";
 
-
 import { Box, Container } from "@mui/material";
 import LightboxModal from "@/components/LightboxModal";
 import { useLightbox } from "@/hooks/useLightbox";
@@ -28,7 +27,6 @@ export default function SliderGridLayout({
   const lightbox = useLightbox();
 
   const startIndex = currentPage * imagesPerPage;
-  const endIndex = startIndex + imagesPerPage;
   const currentImages = Array.from({ length: imagesPerPage }, (_, i) => startIndex + i + 1).filter(
     (num) => num <= totalImages
   );
@@ -58,8 +56,7 @@ export default function SliderGridLayout({
               margin: 0,
               fontWeight: 700,
               textTransform: "uppercase",
-            }
-  );}
+            }}
           >
             {title}
           </h2>
@@ -72,10 +69,9 @@ export default function SliderGridLayout({
             sx={{
               display: "grid",
               gridTemplateColumns: { xs: "1fr", md: `repeat(${columnsPerRow}, 1fr)` },
-              gap: 2,
+              gap: 3,
               mb: 4,
-            }
-  );}
+            }}
           >
             {currentImages.map((imageNum) => (
               <Box
@@ -94,93 +90,73 @@ export default function SliderGridLayout({
                   transition: "transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94)",
                   "&:hover": {
                     transform: "scale(1.15)",
-                  }
-  );,
+                  },
                   overflow: "hidden",
-                }
-  );}
+                }}
               />
             ))}
           </Box>
 
           {/* Navigation Controls */}
-          <Box
-            sx={{
-              display: "flex",
-              justifyContent: "space-between",
-              alignItems: "center",
-              gap: 2,
-            }
-  );}
-          >
-            {/* Previous Button */}
-            <button
-              onClick={handlePrev}
-              style={{
-                background: "none",
-                border: "none",
-                fontSize: "2rem",
-                color: "#ff0000",
-                cursor: "pointer",
-                fontWeight: "bold",
-                padding: "0.5rem 1rem",
-                transition: "transform 0.2s",
-              }
-  );}
-              onMouseEnter={(e) => (e.currentTarget.style.transform = "scale(1.2)")}
-              onMouseLeave={(e) => (e.currentTarget.style.transform = "scale(1)")}
+          {totalPages > 1 && (
+            <Box
+              sx={{
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+                gap: 4,
+              }}
             >
-              ←
-            </button>
+              <button
+                onClick={handlePrev}
+                style={{
+                  background: "none",
+                  border: "none",
+                  fontSize: "2rem",
+                  color: "#ff0000",
+                  cursor: "pointer",
+                  fontWeight: "bold",
+                  padding: "0.5rem 1rem",
+                  transition: "transform 0.2s",
+                }}
+                onMouseEnter={(e) => (e.currentTarget.style.transform = "scale(1.2)")}
+                onMouseLeave={(e) => (e.currentTarget.style.transform = "scale(1)")}
+              >
+                ←
+              </button>
 
-            {/* Page Indicator */}
-            <p
-              style={{
-                fontSize: "1.1rem",
-                color: "#2a2a2a",
-                margin: 0,
-                fontWeight: 600,
-                letterSpacing: "2px",
-              }
-  );}
-            >
-              {currentPage + 1} / {totalPages}
-            </p>
+              <p
+                style={{
+                  fontSize: "1.1rem",
+                  color: "#2a2a2a",
+                  margin: 0,
+                  fontWeight: 600,
+                  letterSpacing: "2px",
+                }}
+              >
+                {currentPage + 1} / {totalPages}
+              </p>
 
-            {/* Next Button */}
-            <button
-              onClick={handleNext}
-              style={{
-                background: "none",
-                border: "none",
-                fontSize: "2rem",
-                color: "#ff0000",
-                cursor: "pointer",
-                fontWeight: "bold",
-                padding: "0.5rem 1rem",
-                transition: "transform 0.2s",
-              }
-  );}
-              onMouseEnter={(e) => (e.currentTarget.style.transform = "scale(1.2)")}
-              onMouseLeave={(e) => (e.currentTarget.style.transform = "scale(1)")}
-            >
-              →
-            </button>
-          </Box>
+              <button
+                onClick={handleNext}
+                style={{
+                  background: "none",
+                  border: "none",
+                  fontSize: "2rem",
+                  color: "#ff0000",
+                  cursor: "pointer",
+                  fontWeight: "bold",
+                  padding: "0.5rem 1rem",
+                  transition: "transform 0.2s",
+                }}
+                onMouseEnter={(e) => (e.currentTarget.style.transform = "scale(1.2)")}
+                onMouseLeave={(e) => (e.currentTarget.style.transform = "scale(1)")}
+              >
+                →
+              </button>
+            </Box>
+          )}
         </Box>
-
-        {/* Description */}
-        <p
-          style={{
-            fontSize: "0.95rem",
-            lineHeight: 1.8,
-            color: "#2a2a2a",
-            margin: 0,
-          }
-  );}
-        >
-          {description}
-        </p>
       </Container>
 
       {/* Lightbox Modal */}
