@@ -1,30 +1,50 @@
 "use client";
 
+
 import { Box, Container } from "@mui/material";
 import LightboxModal from "@/components/LightboxModal";
 import { useLightbox } from "@/hooks/useLightbox";
 import BackArrow from "@/components/BackArrow";
 import { useLanguageToggle, translations } from "@/hooks/useLanguageToggle";
+import { useState } from "react";
 
-interface ThreeColumnLayoutProps {
+interface SliderThreeColumnLayoutProps {
   categoria: string;
   title: string;
   number: string;
   description: string;
+  totalImages?: number;
   titleKey?: string;
 }
 
-export default function ThreeColumnLayout({
+export default function SliderThreeColumnLayout({
   categoria,
   title,
   number,
   description,
-  titleKey = "eventTitle",
-}: ThreeColumnLayoutProps) {
+  totalImages = 10,
+  titleKey = "landscapeTitle",
+}: SliderThreeColumnLayoutProps) {
+  const imagesPerPage = 5;
+  const totalPages = Math.ceil(totalImages / imagesPerPage);
+  const [currentPage, setCurrentPage] = useState(0);
   const lightbox = useLightbox();
   const isJapanese = useLanguageToggle();
 
   const displayTitle = isJapanese ? (translations[titleKey]?.ja || title) : (translations[titleKey]?.en || title);
+
+  const startIndex = currentPage * imagesPerPage;
+  const currentImages = Array.from({ length: imagesPerPage }, (_, i) => startIndex + i + 1).filter(
+    (num) => num <= totalImages
+  );
+
+  const handlePrev = () => {
+    setCurrentPage((prev) => (prev > 0 ? prev - 1 : totalPages - 1));
+  };
+
+  const handleNext = () => {
+    setCurrentPage((prev) => (prev < totalPages - 1 ? prev + 1 : 0));
+  };
 
   return (
     <Box sx={{ backgroundColor: "#faf8f5", minHeight: "100vh", py: { xs: 6, md: 8 } }}>
@@ -39,19 +59,19 @@ export default function ThreeColumnLayout({
             gridTemplateColumns: { xs: "1fr", md: "0.8fr 1fr 1fr" },
             gap: { xs: 3, md: 4 },
             alignItems: "start",
+            mb: 4,
           }}
         >
           {/* Left Column */}
           <Box>
             <Box
-              onClick={() => lightbox.openLightbox(1)}
               sx={{
                 width: "100%",
                 paddingBottom: "120%",
                 position: "relative",
                 backgroundColor: "#d0d0d0",
                 borderRadius: "4px",
-                backgroundImage: `url(/images/galeria/1.png)`,
+                backgroundImage: `url(/images/galeria/${categoria}-${currentImages[0] || 1}.jpg)`,
                 backgroundSize: "cover",
                 backgroundPosition: "center",
                 cursor: "pointer",
@@ -64,17 +84,17 @@ export default function ThreeColumnLayout({
               }}
             />
             <Box sx={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 2 }}>
-              {[2, 3].map((item) => (
+              {currentImages.slice(1, 3).map((item) => (
                 <Box
                   key={item}
-                  onClick={() => lightbox.openLightbox(item)}
+                onClick={() => lightbox.openLightbox(item)}
                   sx={{
                     width: "100%",
                     paddingBottom: "100%",
                     position: "relative",
                     backgroundColor: "#d0d0d0",
                     borderRadius: "4px",
-                    backgroundImage: `url(/images/galeria/${item}.png)`,
+                    backgroundImage: `url(/images/galeria/${item}2.png)`,
                     backgroundSize: "cover",
                     backgroundPosition: "center",
                     cursor: "pointer",
@@ -129,13 +149,13 @@ export default function ThreeColumnLayout({
 
           {/* Right Column */}
           <Box sx={{ display: "flex", flexDirection: "column", gap: 3 }}>
-            {[4, 5].map((item) => (
+            {currentImages.slice(3, 5).map((item) => (
               <Box
                 key={item}
                 onClick={() => lightbox.openLightbox(item)}
                 sx={{
                   width: "100%",
-                  paddingBottom: item === 4 ? "80%" : "100%",
+                  paddingBottom: item === currentImages[3] ? "80%" : "100%",
                   position: "relative",
                   backgroundColor: "#d0d0d0",
                   borderRadius: "4px",
@@ -153,6 +173,69 @@ export default function ThreeColumnLayout({
             ))}
           </Box>
         </Box>
+
+        {/* Navigation Controls */}
+        {totalPages > 1 && (
+          <Box
+            sx={{
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+              gap: 4,
+            }}
+          >
+            {/* Previous Button */}
+            <button
+              onClick={handlePrev}
+              style={{
+                background: "none",
+                border: "none",
+                fontSize: "2rem",
+                color: "#ff0000",
+                cursor: "pointer",
+                fontWeight: "bold",
+                padding: "0.5rem 1rem",
+                transition: "transform 0.2s",
+              }}
+              onMouseEnter={(e) => (e.currentTarget.style.transform = "scale(1.2)")}
+              onMouseLeave={(e) => (e.currentTarget.style.transform = "scale(1)")}
+            >
+              ←
+            </button>
+
+            {/* Page Indicator */}
+            <p
+              style={{
+                fontSize: "1.1rem",
+                color: "#2a2a2a",
+                margin: 0,
+                fontWeight: 600,
+                letterSpacing: "2px",
+              }}
+            >
+              {currentPage + 1} / {totalPages}
+            </p>
+
+            {/* Next Button */}
+            <button
+              onClick={handleNext}
+              style={{
+                background: "none",
+                border: "none",
+                fontSize: "2rem",
+                color: "#ff0000",
+                cursor: "pointer",
+                fontWeight: "bold",
+                padding: "0.5rem 1rem",
+                transition: "transform 0.2s",
+              }}
+              onMouseEnter={(e) => (e.currentTarget.style.transform = "scale(1.2)")}
+              onMouseLeave={(e) => (e.currentTarget.style.transform = "scale(1)")}
+            >
+              →
+            </button>
+          </Box>
+        )}
       </Container>
 
       {/* Lightbox Modal */}

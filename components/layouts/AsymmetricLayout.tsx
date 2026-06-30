@@ -1,5 +1,9 @@
+"use client";
+
 import { Box, Container } from "@mui/material";
 import BackArrow from "@/components/BackArrow";
+import LightboxModal from "@/components/LightboxModal";
+import { useLightbox } from "@/hooks/useLightbox";
 
 interface AsymmetricLayoutProps {
   categoria: string;
@@ -8,10 +12,11 @@ interface AsymmetricLayoutProps {
 }
 
 export default function AsymmetricLayout({
-  categoria,
   title,
   description,
 }: AsymmetricLayoutProps) {
+  const lightbox = useLightbox();
+
   return (
     <Box sx={{ backgroundColor: "#faf8f5", minHeight: "100vh", py: { xs: 6, md: 8 } }}>
       <Container maxWidth="lg">
@@ -46,19 +51,20 @@ export default function AsymmetricLayout({
             {[1, 2].map((item) => (
               <Box
                 key={item}
+                onClick={() => lightbox.openLightbox(item)}
                 sx={{
                   width: "100%",
                   paddingBottom: "60%",
                   position: "relative",
                   backgroundColor: "#d0d0d0",
                   borderRadius: "4px",
-                  backgroundImage: `url(/images/galeria/${categoria}-${item}.jpg)`,
+                  backgroundImage: `url(/images/galeria/${item}.png)`,
                   backgroundSize: "cover",
                   backgroundPosition: "center",
                   cursor: "pointer",
-                  transition: "transform 0.3s ease",
+                  transition: "transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94)",
                   "&:hover": {
-                    transform: "scale(1.02)",
+                    transform: "scale(1.15)",
                   },
                   overflow: "hidden",
                 }}
@@ -76,19 +82,20 @@ export default function AsymmetricLayout({
             {[3, 4].map((item) => (
               <Box
                 key={item}
+                onClick={() => lightbox.openLightbox(item)}
                 sx={{
                   width: "100%",
                   paddingBottom: "70%",
                   position: "relative",
                   backgroundColor: "#d0d0d0",
                   borderRadius: "4px",
-                  backgroundImage: `url(/images/galeria/${categoria}-${item}.jpg)`,
+                  backgroundImage: `url(/images/galeria/${item}.png)`,
                   backgroundSize: "cover",
                   backgroundPosition: "center",
                   cursor: "pointer",
-                  transition: "transform 0.3s ease",
+                  transition: "transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94)",
                   "&:hover": {
-                    transform: "scale(1.02)",
+                    transform: "scale(1.15)",
                   },
                   overflow: "hidden",
                 }}
@@ -109,6 +116,28 @@ export default function AsymmetricLayout({
           {description}
         </p>
       </Container>
+
+      {/* Lightbox Modal */}
+      <LightboxModal
+        isOpen={lightbox.lightboxOpen}
+        imageUrl={`/images/galeria/${lightbox.selectedImage}.png`}
+        imageAlt={`Imagen ${lightbox.selectedImage}`}
+        zoom={lightbox.zoom}
+        pan={lightbox.pan}
+        isDragging={lightbox.isDragging}
+        containerRef={lightbox.containerRef}
+        imageRef={lightbox.imageRef}
+        onClose={lightbox.closeLightbox}
+        onZoomIn={lightbox.zoomIn}
+        onZoomOut={lightbox.zoomOut}
+        onReset={lightbox.resetView}
+        onMouseDown={lightbox.handleMouseDown}
+        onMouseMove={lightbox.handleMouseMove}
+        onMouseUp={lightbox.handleMouseUp}
+        onMouseLeave={lightbox.handleMouseUp}
+        MAX_ZOOM={lightbox.MAX_ZOOM}
+        MIN_ZOOM={lightbox.MIN_ZOOM}
+      />
     </Box>
   );
 }

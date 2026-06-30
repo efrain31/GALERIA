@@ -4,17 +4,16 @@ import LightboxModal from "@/components/LightboxModal";
 import { useLightbox } from "@/hooks/useLightbox";
 import BackArrow from "@/components/BackArrow";
 
-interface CompactLayoutProps {
+interface FourImageLayoutProps {
   categoria: string;
   title: string;
   description: string;
 }
 
-export default function CompactLayout({
-  categoria,
+export default function FourImageLayout({
   title,
   description,
-}: CompactLayoutProps) {
+}: FourImageLayoutProps) {
   const lightbox = useLightbox();
   return (
     <Box sx={{ backgroundColor: "#faf8f5", minHeight: "100vh", py: { xs: 6, md: 8 } }}>
@@ -23,14 +22,8 @@ export default function CompactLayout({
           <BackArrow href="/galeria" text="_ VOLVER _" />
         </Box>
 
-        <Box
-          sx={{
-            display: "grid",
-            gridTemplateColumns: { xs: "1fr", md: "1fr 1.5fr" },
-            gap: { xs: 2, md: 4 },
-            mb: 8,
-          }}
-        >
+        {/* Header with Title */}
+        <Box sx={{ display: "flex", justifyContent: "flex-end", mb: 6 }}>
           <h2
             style={{
               fontSize: "0.85rem",
@@ -39,38 +32,28 @@ export default function CompactLayout({
               margin: 0,
               fontWeight: 700,
               textTransform: "uppercase",
-              lineHeight: 1.4,
             }}
           >
             {title}
           </h2>
-
-          <p
-            style={{
-              fontSize: "0.95rem",
-              lineHeight: 1.8,
-              color: "#2a2a2a",
-              margin: 0,
-            }}
-          >
-            {description}
-          </p>
         </Box>
 
+        {/* Image Grid - 2 rows x 2 columns */}
         <Box
           sx={{
             display: "grid",
             gridTemplateColumns: { xs: "1fr", md: "1fr 1fr" },
             gap: 3,
+            mb: 6,
           }}
         >
-          {[1, 2].map((item) => (
+          {[1, 2, 3, 4].map((item) => (
             <Box
               key={item}
                 onClick={() => lightbox.openLightbox(item)}
               sx={{
                 width: "100%",
-                paddingBottom: "70%",
+                paddingBottom: "56.25%",
                 position: "relative",
                 backgroundColor: "#d0d0d0",
                 borderRadius: "4px",
@@ -86,29 +69,41 @@ export default function CompactLayout({
               }}
             />
           ))}
-        </Box></Container>
+        </Box>
 
+        {/* Description */}
+        <p
+          style={{
+            fontSize: "1.1rem",
+            lineHeight: 1.9,
+            color: "#2a2a2a",
+            margin: 0,
+          }}
+        >
+          {description}
+        </p>
+      </Container>
 
-      {{/* Lightbox Modal */}}
+      {/* Lightbox Modal */}
       <LightboxModal
-        isOpen={{lightbox.lightboxOpen}}
-        imageUrl={{`/images/galeria/${{lightbox.selectedImage}}.png`}}
-        imageAlt={{`Imagen ${{lightbox.selectedImage}}`}}
-        zoom={{lightbox.zoom}}
-        pan={{lightbox.pan}}
-        isDragging={{lightbox.isDragging}}
-        containerRef={{lightbox.containerRef}}
-        imageRef={{lightbox.imageRef}}
-        onClose={{lightbox.closeLightbox}}
-        onZoomIn={{lightbox.zoomIn}}
-        onZoomOut={{lightbox.zoomOut}}
-        onReset={{lightbox.resetView}}
-        onMouseDown={{lightbox.handleMouseDown}}
-        onMouseMove={{lightbox.handleMouseMove}}
-        onMouseUp={{lightbox.handleMouseUp}}
-        onMouseLeave={{lightbox.handleMouseUp}}
-        MAX_ZOOM={{lightbox.MAX_ZOOM}}
-        MIN_ZOOM={{lightbox.MIN_ZOOM}}
+        isOpen={lightbox.lightboxOpen}
+        imageUrl={`/images/galeria/${lightbox.selectedImage}.png`}
+        imageAlt={`Imagen ${lightbox.selectedImage}`}
+        zoom={lightbox.zoom}
+        pan={lightbox.pan}
+        isDragging={lightbox.isDragging}
+        containerRef={lightbox.containerRef}
+        imageRef={lightbox.imageRef}
+        onClose={lightbox.closeLightbox}
+        onZoomIn={lightbox.zoomIn}
+        onZoomOut={lightbox.zoomOut}
+        onReset={lightbox.resetView}
+        onMouseDown={lightbox.handleMouseDown}
+        onMouseMove={lightbox.handleMouseMove}
+        onMouseUp={lightbox.handleMouseUp}
+        onMouseLeave={lightbox.handleMouseUp}
+        MAX_ZOOM={lightbox.MAX_ZOOM}
+        MIN_ZOOM={lightbox.MIN_ZOOM}
       />
     </Box>
   );

@@ -1,7 +1,12 @@
+'use client';
+
 import { Box } from "@mui/material";
 import Link from "next/link";
+import { useLanguageToggle } from "@/hooks/useLanguageToggle";
 
 export default function About() {
+  const isJapanese = useLanguageToggle();
+  const galleryText = isJapanese ? "ギャラリーへ" : "IR _ ALERÍA";
   return (
     <Box sx={{ minHeight: "100vh", backgroundColor: "#faf8f5" }}>
       <Box
@@ -52,7 +57,7 @@ export default function About() {
           <Link href="/galeria" style={{ textDecoration: "none", position: "absolute", top: "2rem", right: "2rem" }}>
             <Box sx={{ display: "flex", alignItems: "center", gap: 1.5, cursor: "pointer" }}>
               <p style={{ fontSize: "0.75rem", margin: 0, letterSpacing: "1px", color: "#ff0000", fontWeight: 600 }}>
-                IR _ ALERÍA
+                {galleryText}
               </p>
               <p style={{ fontSize: "1.5rem", margin: 0, color: "#ff0000", fontWeight: "bold" }}>
                 →

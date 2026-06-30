@@ -1,7 +1,13 @@
+'use client';
+
 import { Box } from "@mui/material";
 import Link from "next/link";
+import { useLanguageToggle } from "@/hooks/useLanguageToggle";
 
 export default function Home() {
+  const isJapanese = useLanguageToggle();
+  const mainTitle = isJapanese ? "アート を求めない" : "NO QUIERO [ARTE =!]";
+  const exploreText = isJapanese ? "ギャラリーを探索" : "EXPLORAR GALERÍA";
   return (
     <Box
       sx={{
@@ -51,7 +57,7 @@ export default function Home() {
             textShadow: "4px 4px 12px rgba(0,0,0,0.7)",
           }}
         >
-          NO QUIERO [ARTE =!]
+          {mainTitle}
 
         </h1>
 
@@ -60,9 +66,8 @@ export default function Home() {
           sx={{
             display: "flex",
             justifyContent: "space-between",
-            alignItems: "flex-start",
-            gap: 4,
             alignItems: "center",
+            gap: 4,
           }}
         >
           <Box>
@@ -114,7 +119,7 @@ export default function Home() {
           <Box />
           <Box sx={{ textAlign: "center", flex: 1 }}>
             <p style={{ fontSize: "0.9rem", margin: 0, letterSpacing: "2px", color: "#666" }}>
-              EXPLORAR GALERÍA
+              {exploreText}
             </p>
           </Box>
           <Box sx={{ textAlign: "right" }}>
