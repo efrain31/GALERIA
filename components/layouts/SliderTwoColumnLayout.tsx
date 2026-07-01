@@ -49,7 +49,7 @@ export default function SliderTwoColumnLayout({
   };
 
   return (
-    <Box sx={{ backgroundColor: "#faf8f5", minHeight: "100vh", py: { xs: 6, md: 8 } }}>
+    <Box suppressHydrationWarning sx={{ backgroundColor: "#faf8f5", minHeight: "100vh", py: { xs: 6, md: 8 } }}>
       <Container maxWidth="lg">
         <Box sx={{ mb: 6 }}>
           <BackArrow href="/galeria" text="_ VOLVER _" />
