@@ -70,7 +70,7 @@ export default function About() {
           {/* Name */}
           <h1
             style={{
-              fontSize: "clamp(2.2rem, 6vw, 3.8rem)",
+              fontSize: "clamp(1.8rem, 7vw, 3.8rem)",
               color: "#ff0000",
               margin: "0 0 0.2rem 0",
               fontWeight: 900,
@@ -93,7 +93,7 @@ export default function About() {
           {/* Title */}
           <p
             style={{
-              fontSize: "0.85rem",
+              fontSize: "clamp(0.75rem, 3vw, 0.85rem)",
               letterSpacing: "3px",
               color: "#666",
               margin: "0 0 1.5rem 0",
@@ -107,7 +107,7 @@ export default function About() {
           {/* Description */}
           <p
             style={{
-              fontSize: "0.95rem",
+              fontSize: "clamp(0.85rem, 4vw, 0.95rem)",
               lineHeight: 1.8,
               color: "#2a2a2a",
               margin: "0 0 1.5rem 0",

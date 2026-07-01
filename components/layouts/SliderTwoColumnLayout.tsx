@@ -60,18 +60,19 @@ export default function SliderTwoColumnLayout({
           sx={{
             display: "grid",
             gridTemplateColumns: { xs: "1fr", md: "1fr 1fr" },
-            gap: { xs: 4, md: 8 },
+            gap: { xs: 2, md: 8 },
             alignItems: "start",
+            p: { xs: 1.5, md: 0 },
           }}
         >
           {/* Left Column - Title and Description */}
-          <Box>
+          <Box sx={{ pr: { xs: 0, md: 2 } }}>
             <h2
               style={{
-                fontSize: "0.85rem",
+                fontSize: "clamp(0.7rem, 2.5vw, 0.85rem)",
                 letterSpacing: "2px",
                 color: "#ff0000",
-                margin: "0 0 2rem 0",
+                margin: "0 0 clamp(1rem, 4vw, 2rem) 0",
                 fontWeight: 700,
                 textTransform: "uppercase",
               }}
@@ -81,9 +82,9 @@ export default function SliderTwoColumnLayout({
 
             <h1
               style={{
-                fontSize: "clamp(2.5rem, 8vw, 4rem)",
+                fontSize: "clamp(2rem, 8vw, 4rem)",
                 color: "#ff0000",
-                margin: "0 0 2rem 0",
+                margin: "0 0 clamp(1rem, 4vw, 2rem) 0",
                 fontWeight: 900,
                 letterSpacing: "-1.5px",
                 lineHeight: 1.1,
@@ -94,7 +95,7 @@ export default function SliderTwoColumnLayout({
 
             <p
               style={{
-                fontSize: "0.95rem",
+                fontSize: "clamp(0.8rem, 2.5vw, 0.95rem)",
                 lineHeight: 1.8,
                 color: "#2a2a2a",
                 margin: 0,
@@ -106,14 +107,14 @@ export default function SliderTwoColumnLayout({
           </Box>
 
           {/* Right Column - Gallery Grid with Slider */}
-          <Box>
+          <Box sx={{ px: { xs: 0, md: 0 } }}>
             {/* Image Grid - 3x2 */}
             <Box
               sx={{
                 display: "grid",
-                gridTemplateColumns: "repeat(3, 1fr)",
-                gap: 2,
-                mb: 4,
+                gridTemplateColumns: { xs: "repeat(2, 1fr)", md: "repeat(3, 1fr)" },
+                gap: { xs: 1.5, md: 2 },
+                mb: { xs: 3, md: 4 },
               }}
             >
               {currentImages.map((image) => (
@@ -147,7 +148,8 @@ export default function SliderTwoColumnLayout({
                   display: "flex",
                   justifyContent: "center",
                   alignItems: "center",
-                  gap: 4,
+                  gap: { xs: 2, md: 4 },
+                  mt: { xs: 2, md: 3 },
                 }}
               >
                 {/* Previous Button */}
@@ -156,11 +158,11 @@ export default function SliderTwoColumnLayout({
                   style={{
                     background: "none",
                     border: "none",
-                    fontSize: "2rem",
+                    fontSize: "clamp(1.2rem, 5vw, 2rem)",
                     color: "#ff0000",
                     cursor: "pointer",
                     fontWeight: "bold",
-                    padding: "0.5rem 1rem",
+                    padding: "clamp(0.3rem, 1vw, 1rem) clamp(0.5rem, 2vw, 1rem)",
                     transition: "transform 0.2s",
                   }}
                   onMouseEnter={(e) => (e.currentTarget.style.transform = "scale(1.2)")}
@@ -172,7 +174,7 @@ export default function SliderTwoColumnLayout({
                 {/* Page Indicator */}
                 <p
                   style={{
-                    fontSize: "1.1rem",
+                    fontSize: "clamp(0.8rem, 2.5vw, 1.1rem)",
                     color: "#2a2a2a",
                     margin: 0,
                     fontWeight: 600,
@@ -188,11 +190,11 @@ export default function SliderTwoColumnLayout({
                   style={{
                     background: "none",
                     border: "none",
-                    fontSize: "2rem",
+                    fontSize: "clamp(1.2rem, 5vw, 2rem)",
                     color: "#ff0000",
                     cursor: "pointer",
                     fontWeight: "bold",
-                    padding: "0.5rem 1rem",
+                    padding: "clamp(0.3rem, 1vw, 1rem) clamp(0.5rem, 2vw, 1rem)",
                     transition: "transform 0.2s",
                   }}
                   onMouseEnter={(e) => (e.currentTarget.style.transform = "scale(1.2)")}

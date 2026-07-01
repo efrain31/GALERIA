@@ -40,8 +40,9 @@ export default function ThreeColumnLayout({
           sx={{
             display: "grid",
             gridTemplateColumns: { xs: "1fr", md: "0.8fr 1fr 1fr" },
-            gap: { xs: 3, md: 4 },
+            gap: { xs: 2, md: 4 },
             alignItems: "start",
+            p: { xs: 1.5, md: 0 },
           }}
         >
           {/* Left Column */}
@@ -64,11 +65,11 @@ export default function ThreeColumnLayout({
                     transform: "scale(1.15)",
                   },
                   overflow: "hidden",
-                  mb: 3,
+                  mb: { xs: 2, md: 3 },
                 }}
               />
             )}
-            <Box sx={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 2 }}>
+            <Box sx={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: { xs: 1.5, md: 2 } }}>
               {images.slice(1, 3).map((image) => (
                 <Box
                   key={image.id}
@@ -95,12 +96,12 @@ export default function ThreeColumnLayout({
           </Box>
 
           {/* Center Column */}
-          <Box sx={{ display: "flex", flexDirection: "column", justifyContent: "flex-start" }}>
+          <Box sx={{ display: "flex", flexDirection: "column", justifyContent: "flex-start", p: { xs: 2, md: 0 } }}>
             <h1
               style={{
-                fontSize: "clamp(3rem, 12vw, 5rem)",
+                fontSize: "clamp(2rem, 10vw, 5rem)",
                 color: "#ff0000",
-                margin: "0 0 0.5rem 0",
+                margin: "0 0 clamp(0.3rem, 1.5vw, 0.5rem) 0",
                 fontWeight: 900,
                 letterSpacing: "-2px",
                 lineHeight: 0.9,
@@ -110,9 +111,9 @@ export default function ThreeColumnLayout({
             </h1>
             <h2
               style={{
-                fontSize: "clamp(1.5rem, 5vw, 2.2rem)",
+                fontSize: "clamp(1.2rem, 5vw, 2.2rem)",
                 color: "#ff0000",
-                margin: "0 0 2rem 0",
+                margin: "0 0 clamp(1rem, 4vw, 2rem) 0",
                 fontWeight: 900,
                 letterSpacing: "-0.5px",
                 lineHeight: 1.2,
@@ -122,7 +123,7 @@ export default function ThreeColumnLayout({
             </h2>
             <p
               style={{
-                fontSize: "0.9rem",
+                fontSize: "clamp(0.8rem, 2.5vw, 0.9rem)",
                 lineHeight: 1.7,
                 color: "#2a2a2a",
                 margin: 0,
@@ -133,7 +134,7 @@ export default function ThreeColumnLayout({
           </Box>
 
           {/* Right Column */}
-          <Box sx={{ display: "flex", flexDirection: "column", gap: 3 }}>
+          <Box sx={{ display: "flex", flexDirection: "column", gap: { xs: 2, md: 3 } }}>
             {images.slice(3, 5).map((image, index) => (
               <Box
                 key={image.id}

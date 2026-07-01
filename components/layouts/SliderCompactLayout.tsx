@@ -56,12 +56,12 @@ export default function SliderCompactLayout({
             display: "grid",
             gridTemplateColumns: { xs: "1fr", md: "1fr 1.5fr" },
             gap: { xs: 2, md: 4 },
-            mb: 8,
+            mb: { xs: 4, md: 8 },
           }}
         >
           <h2
             style={{
-              fontSize: "0.85rem",
+              fontSize: "clamp(0.7rem, 3vw, 0.85rem)",
               letterSpacing: "2px",
               color: "#ff0000",
               margin: 0,
@@ -75,7 +75,7 @@ export default function SliderCompactLayout({
 
           <p
             style={{
-              fontSize: "0.95rem",
+              fontSize: "clamp(0.85rem, 4vw, 0.95rem)",
               lineHeight: 1.8,
               color: "#2a2a2a",
               margin: 0,
@@ -90,8 +90,8 @@ export default function SliderCompactLayout({
           sx={{
             display: "grid",
             gridTemplateColumns: { xs: "1fr", md: "1fr 1fr" },
-            gap: 3,
-            mb: 4,
+            gap: { xs: 2, md: 3 },
+            mb: { xs: 4, md: 4 },
           }}
         >
           {currentImages.map((image) => (
@@ -125,7 +125,8 @@ export default function SliderCompactLayout({
               display: "flex",
               justifyContent: "center",
               alignItems: "center",
-              gap: 4,
+              gap: { xs: 2, md: 4 },
+              mt: { xs: 4, md: 0 },
             }}
           >
             {/* Previous Button */}
@@ -134,7 +135,7 @@ export default function SliderCompactLayout({
               style={{
                 background: "none",
                 border: "none",
-                fontSize: "2rem",
+                fontSize: "clamp(1.5rem, 5vw, 2rem)",
                 color: "#ff0000",
                 cursor: "pointer",
                 fontWeight: "bold",
@@ -150,7 +151,7 @@ export default function SliderCompactLayout({
             {/* Page Indicator */}
             <p
               style={{
-                fontSize: "1.1rem",
+                fontSize: "clamp(0.9rem, 3vw, 1.1rem)",
                 color: "#2a2a2a",
                 margin: 0,
                 fontWeight: 600,
@@ -166,7 +167,7 @@ export default function SliderCompactLayout({
               style={{
                 background: "none",
                 border: "none",
-                fontSize: "2rem",
+                fontSize: "clamp(1.5rem, 5vw, 2rem)",
                 color: "#ff0000",
                 cursor: "pointer",
                 fontWeight: "bold",

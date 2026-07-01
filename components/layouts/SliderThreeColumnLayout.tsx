@@ -58,9 +58,10 @@ export default function SliderThreeColumnLayout({
           sx={{
             display: "grid",
             gridTemplateColumns: { xs: "1fr", md: "0.8fr 1fr 1fr" },
-            gap: { xs: 3, md: 4 },
+            gap: { xs: 2, md: 4 },
             alignItems: "start",
-            mb: 4,
+            mb: { xs: 3, md: 4 },
+            p: { xs: 1.5, md: 0 },
           }}
         >
           {/* Left Column */}
@@ -83,11 +84,11 @@ export default function SliderThreeColumnLayout({
                     transform: "scale(1.15)",
                   },
                   overflow: "hidden",
-                  mb: 3,
+                  mb: { xs: 2, md: 3 },
                 }}
               />
             )}
-            <Box sx={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 2 }}>
+            <Box sx={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: { xs: 1.5, md: 2 } }}>
               {currentImages.slice(1, 3).map((image) => (
                 <Box
                   key={image.id}
@@ -114,12 +115,12 @@ export default function SliderThreeColumnLayout({
           </Box>
 
           {/* Center Column */}
-          <Box sx={{ display: "flex", flexDirection: "column", justifyContent: "flex-start" }}>
+          <Box sx={{ display: "flex", flexDirection: "column", justifyContent: "flex-start", p: { xs: 2, md: 0 } }}>
             <h1
               style={{
-                fontSize: "clamp(3rem, 12vw, 5rem)",
+                fontSize: "clamp(2rem, 10vw, 5rem)",
                 color: "#ff0000",
-                margin: "0 0 0.5rem 0",
+                margin: "0 0 clamp(0.3rem, 1.5vw, 0.5rem) 0",
                 fontWeight: 900,
                 letterSpacing: "-2px",
                 lineHeight: 0.9,
@@ -129,9 +130,9 @@ export default function SliderThreeColumnLayout({
             </h1>
             <h2
               style={{
-                fontSize: "clamp(1.5rem, 5vw, 2.2rem)",
+                fontSize: "clamp(1.2rem, 5vw, 2.2rem)",
                 color: "#ff0000",
-                margin: "0 0 2rem 0",
+                margin: "0 0 clamp(1rem, 4vw, 2rem) 0",
                 fontWeight: 900,
                 letterSpacing: "-0.5px",
                 lineHeight: 1.2,
@@ -141,7 +142,7 @@ export default function SliderThreeColumnLayout({
             </h2>
             <p
               style={{
-                fontSize: "0.9rem",
+                fontSize: "clamp(0.8rem, 2.5vw, 0.9rem)",
                 lineHeight: 1.7,
                 color: "#2a2a2a",
                 margin: 0,
@@ -152,7 +153,7 @@ export default function SliderThreeColumnLayout({
           </Box>
 
           {/* Right Column */}
-          <Box sx={{ display: "flex", flexDirection: "column", gap: 3 }}>
+          <Box sx={{ display: "flex", flexDirection: "column", gap: { xs: 2, md: 3 } }}>
             {currentImages.slice(3, 5).map((image, index) => (
               <Box
                 key={image.id}
@@ -185,7 +186,8 @@ export default function SliderThreeColumnLayout({
               display: "flex",
               justifyContent: "center",
               alignItems: "center",
-              gap: 4,
+              gap: { xs: 2, md: 4 },
+              mt: { xs: 2, md: 3 },
             }}
           >
             {/* Previous Button */}
@@ -194,11 +196,11 @@ export default function SliderThreeColumnLayout({
               style={{
                 background: "none",
                 border: "none",
-                fontSize: "2rem",
+                fontSize: "clamp(1.2rem, 5vw, 2rem)",
                 color: "#ff0000",
                 cursor: "pointer",
                 fontWeight: "bold",
-                padding: "0.5rem 1rem",
+                padding: "clamp(0.3rem, 1vw, 1rem) clamp(0.5rem, 2vw, 1rem)",
                 transition: "transform 0.2s",
               }}
               onMouseEnter={(e) => (e.currentTarget.style.transform = "scale(1.2)")}
@@ -210,7 +212,7 @@ export default function SliderThreeColumnLayout({
             {/* Page Indicator */}
             <p
               style={{
-                fontSize: "1.1rem",
+                fontSize: "clamp(0.8rem, 2.5vw, 1.1rem)",
                 color: "#2a2a2a",
                 margin: 0,
                 fontWeight: 600,
@@ -226,11 +228,11 @@ export default function SliderThreeColumnLayout({
               style={{
                 background: "none",
                 border: "none",
-                fontSize: "2rem",
+                fontSize: "clamp(1.2rem, 5vw, 2rem)",
                 color: "#ff0000",
                 cursor: "pointer",
                 fontWeight: "bold",
-                padding: "0.5rem 1rem",
+                padding: "clamp(0.3rem, 1vw, 1rem) clamp(0.5rem, 2vw, 1rem)",
                 transition: "transform 0.2s",
               }}
               onMouseEnter={(e) => (e.currentTarget.style.transform = "scale(1.2)")}

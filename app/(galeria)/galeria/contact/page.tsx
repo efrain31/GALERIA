@@ -50,9 +50,9 @@ export default function ContactPage() {
         <Box sx={{ flex: 1, display: "flex", flexDirection: "column", justifyContent: "center" }}>
           <h2
             style={{
-              fontSize: "clamp(2.5rem, 8vw, 3.5rem)",
+              fontSize: "clamp(2rem, 8vw, 3.5rem)",
               fontWeight: 900,
-              margin: "0 0 3rem 0",
+              margin: "0 0 2rem 0",
               letterSpacing: "-1px",
               color: "#ff0000",
               lineHeight: 1.2,
