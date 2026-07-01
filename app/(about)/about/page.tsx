@@ -124,12 +124,13 @@ export default function About() {
           <Box
             sx={{
               display: "flex",
-              gap: { xs: 3, md: 5 },
+              flexDirection: { xs: "column", md: "row" },
+              gap: { xs: 2, md: 4 },
               mt: 2,
             }}
           >
             {/* Phone */}
-            <Box sx={{ display: "flex", alignItems: "center", gap: 1.2 }}>
+            <Box sx={{ display: "flex", alignItems: "flex-start", gap: 1.5, flex: { xs: "1", md: "0" } }}>
               <Box
                 sx={{
                   width: "24px",
@@ -142,17 +143,19 @@ export default function About() {
                   color: "#fff",
                   fontSize: "0.7rem",
                   fontWeight: "bold",
+                  flexShrink: 0,
+                  mt: 0.2,
                 }}
               >
                 📞
               </Box>
-              <a href={`tel:${aboutInfo.phone.replace(/\s+/g, "")}`} style={{ margin: 0, fontSize: "0.9rem", color: "#2a2a2a", textDecoration: "none" }}>
+              <a href={`tel:${aboutInfo.phone.replace(/\s+/g, "")}`} style={{ margin: 0, fontSize: "clamp(0.85rem, 2.5vw, 0.9rem)", color: "#2a2a2a", textDecoration: "none", wordBreak: "break-word" }}>
                 {aboutInfo.phone}
               </a>
             </Box>
 
             {/* Email */}
-            <Box sx={{ display: "flex", alignItems: "center", gap: 1.2 }}>
+            <Box sx={{ display: "flex", alignItems: "flex-start", gap: 1.5, flex: { xs: "1", md: "0" } }}>
               <Box
                 sx={{
                   width: "24px",
@@ -165,11 +168,13 @@ export default function About() {
                   color: "#fff",
                   fontSize: "0.7rem",
                   fontWeight: "bold",
+                  flexShrink: 0,
+                  mt: 0.2,
                 }}
               >
                 ✉️
               </Box>
-              <a href={`mailto:${aboutInfo.email}`} style={{ margin: 0, fontSize: "0.9rem", color: "#2a2a2a", textDecoration: "none" }}>
+              <a href={`mailto:${aboutInfo.email}`} style={{ margin: 0, fontSize: "clamp(0.85rem, 2.5vw, 0.9rem)", color: "#2a2a2a", textDecoration: "none", wordBreak: "break-word" }}>
                 {aboutInfo.email}
               </a>
             </Box>

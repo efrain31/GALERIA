@@ -256,9 +256,9 @@ export default function LightboxModal({
             gap: 3,
           }}
         >
-          <span>📜 Scroll para zoom</span>
-          <span>🖱️ Arrastra para mover</span>
-          <span>⌨️ ESC para cerrar</span>
+          <span> Scroll para zoom</span>
+          <span> Arrastra para mover con zoom</span>
+          <span>ESC para cerrar</span>
         </Box>
         <Box sx={{ color: '#ff0000', fontSize: '0.9rem', fontWeight: 600 }}>
           {zoom > 1 ? 'Modo PAN' : 'Modo VISTA'}

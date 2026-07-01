@@ -3,6 +3,7 @@
 import { Box, Container } from "@mui/material";
 import Link from "next/link";
 import BackArrow from "@/components/BackArrow";
+import PromotionalBanner from "@/components/PromotionalBanner";
 import { useLanguageToggle, translations } from "@/hooks/useLanguageToggle";
 import { categories, mainPageConfig } from "@/lib/data";
 
@@ -262,7 +263,7 @@ export default function Galeria() {
         </Box>
 
         {/* Contact Link */}
-        <Box sx={{ mt: 8, pt: 6, borderTop: "2px solid #2a2a2a" }}>
+        <Box sx={{ mt: 8, pt: 6, borderTop: "2px solid #2a2a2a", mb: 8 }}>
           <Link href="/galeria/contact" style={{ textDecoration: "none" }}>
             <Box
               sx={{
@@ -287,6 +288,18 @@ export default function Galeria() {
           </Link>
         </Box>
       </Container>
+
+      {/* Promotional Banner */}
+      <Box sx={{ mt: { xs: 6, md: 8 }, mb: { xs: 8, md: 12 } }}>
+        <PromotionalBanner
+          title={isJapanese ? "ポートレート写真" : "PORTRAIT PHOTOGRAPHY"}
+          description={isJapanese
+            ? "親密で表現力豊かなポートレートを通じて個人の本質と人格をキャプチャします。"
+            : "Capturing the essence and personality of individuals through intimate and expressive portraits."}
+          imageUrl="/images/galeria/2.png"
+          linkHref="/galeria/portrait"
+        />
+      </Box>
     </div>
   );
 }
