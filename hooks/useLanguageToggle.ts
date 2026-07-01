@@ -2,8 +2,11 @@ import { useState, useEffect } from 'react';
 
 export const useLanguageToggle = () => {
   const [isJapanese, setIsJapanese] = useState(true);
+  const [isMounted, setIsMounted] = useState(false);
 
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    setIsMounted(true);
     const interval = setInterval(() => {
       setIsJapanese((prev) => !prev);
     }, 7000);
@@ -11,7 +14,7 @@ export const useLanguageToggle = () => {
     return () => clearInterval(interval);
   }, []);
 
-  return isJapanese;
+  return isMounted ? isJapanese : true;
 };
 
 export const translations: Record<string, { en: string; ja: string }> = {
