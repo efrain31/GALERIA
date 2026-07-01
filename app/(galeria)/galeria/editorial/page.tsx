@@ -1,12 +1,16 @@
 import SliderImageLayout from "@/components/layouts/SliderImageLayout";
+import { categories, editorialImagesData } from "@/lib/data";
 
 export default function EditorialPage() {
+  const editorialCategory = categories[5];
+
   return (
     <SliderImageLayout
       categoria="editorial"
-      title="EDITORIAL PHOTOGRAPHY"
-      description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis tempor congue nulla, id condimentum eros mattis ac. Sed vulputate justo justo, eget ullamcorper metus rhoncus sed. Sed at consequat odio."
-      totalImages={8}
+      title={editorialCategory.title}
+      description={editorialCategory.description}
+      images={editorialImagesData}
+      totalImages={editorialCategory.totalImages}
     />
   );
 }

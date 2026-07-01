@@ -1,12 +1,16 @@
 import SliderCompactLayout from "@/components/layouts/SliderCompactLayout";
+import { categories, commercialImagesData } from "@/lib/data";
 
 export default function CommercialPage() {
+  const commercialCategory = categories[1];
+
   return (
     <SliderCompactLayout
       categoria="commercial"
-      title="COMMERCIAL PHOTOGRAPHY"
-      description="Professional commercial and advertising photography capturing the essence of modern brands."
-      totalImages={8}
+      title={commercialCategory.title}
+      description={commercialCategory.description}
+      images={commercialImagesData}
+      totalImages={commercialCategory.totalImages}
     />
   );
 }

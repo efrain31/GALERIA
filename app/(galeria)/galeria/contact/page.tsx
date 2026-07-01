@@ -6,10 +6,11 @@ import EmailIcon from "@mui/icons-material/Email";
 import PhoneIcon from "@mui/icons-material/Phone";
 import BackArrow from "@/components/BackArrow";
 import { useLanguageToggle } from "@/hooks/useLanguageToggle";
+import { contactInfo } from "@/lib/data";
 
 export default function ContactPage() {
   const isJapanese = useLanguageToggle();
-  const workWithMeText = isJapanese ? "一緒に\n働きましょう" : "WORK\nWITH ME";
+  const workWithMeText = isJapanese ? `${contactInfo.titleJa.slice(0, 3)}\n${contactInfo.titleJa.slice(3)}` : contactInfo.title.split(" ").join("\n");
   return (
     <Box
       sx={{
@@ -36,7 +37,7 @@ export default function ContactPage() {
       {/* Left Section with Navigation */}
       <Box
         sx={{
-          backgroundColor: "#f5f0eb",
+          backgroundColor: contactInfo.backgroundColor,
           position: "relative",
           display: "flex",
           flexDirection: "column",
@@ -70,17 +71,17 @@ export default function ContactPage() {
               </Box>
               <Box>
                 <p style={{ fontSize: "0.7rem", fontWeight: 600, margin: "0 0 0.3rem 0", color: "#2a2a2a", letterSpacing: "0.5px" }}>
-                  Website
+                  {contactInfo.websiteLabel}
                 </p>
                 <a
-                  href="https://www.mydrygodstodie.com"
+                  href={`https://${contactInfo.website}`}
                   style={{
                     fontSize: "0.8rem",
                     color: "#2a2a2a",
                     textDecoration: "none",
                   }}
                 >
-                  www.mydrygodstodie.com
+                  {contactInfo.website}
                 </a>
               </Box>
             </Box>
@@ -92,17 +93,17 @@ export default function ContactPage() {
               </Box>
               <Box>
                 <p style={{ fontSize: "0.7rem", fontWeight: 600, margin: "0 0 0.3rem 0", color: "#2a2a2a", letterSpacing: "0.5px" }}>
-                  E-mail
+                  {contactInfo.emailLabel}
                 </p>
                 <a
-                  href="mailto:hello@mydrygodstodie.com"
+                  href={`mailto:${contactInfo.email}`}
                   style={{
                     fontSize: "0.8rem",
                     color: "#2a2a2a",
                     textDecoration: "none",
                   }}
                 >
-                  hello@mydrygodstodie.com
+                  {contactInfo.email}
                 </a>
               </Box>
             </Box>
@@ -114,17 +115,17 @@ export default function ContactPage() {
               </Box>
               <Box>
                 <p style={{ fontSize: "0.7rem", fontWeight: 600, margin: "0 0 0.3rem 0", color: "#2a2a2a", letterSpacing: "0.5px" }}>
-                  Telephone
+                  {contactInfo.phoneLabel}
                 </p>
                 <a
-                  href="tel:+1234567890"
+                  href={`tel:${contactInfo.phone.replace(/\s+/g, "")}`}
                   style={{
                     fontSize: "0.8rem",
                     color: "#2a2a2a",
                     textDecoration: "none",
                   }}
                 >
-                  +1 (234) 567-8900
+                  {contactInfo.phone}
                 </a>
               </Box>
             </Box>
@@ -138,7 +139,7 @@ export default function ContactPage() {
           width: "100%",
           height: { xs: "300px", md: "100vh" },
           backgroundColor: "#ddd",
-          backgroundImage: "url(/images/contact-photo.jpg)",
+          backgroundImage: `url(${contactInfo.contactImageUrl})`,
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}

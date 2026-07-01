@@ -3,12 +3,14 @@
 import { Box } from "@mui/material";
 import Link from "next/link";
 import { useLanguageToggle } from "@/hooks/useLanguageToggle";
+import { aboutInfo } from "@/lib/data";
 
 export default function About() {
   const isJapanese = useLanguageToggle();
   const galleryText = isJapanese ? "ギャラリーへ" : "IR _ ALERÍA";
+  const bioText = isJapanese ? aboutInfo.bioJa : aboutInfo.bio;
   return (
-    <Box sx={{ minHeight: "100vh", backgroundColor: "#faf8f5" }}>
+    <Box sx={{ minHeight: "100vh", backgroundColor: aboutInfo.backgroundColor }}>
       <Box
         sx={{
           display: "grid",
@@ -19,7 +21,7 @@ export default function About() {
         {/* Left Section - Dark Background with Photo */}
         <Box
           sx={{
-            backgroundColor: "#3a3a3a",
+            backgroundColor: aboutInfo.profileBackgroundColor,
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
@@ -33,7 +35,7 @@ export default function About() {
               height: { xs: "220px", md: "300px" },
               borderRadius: "50%",
               backgroundColor: "#b0b0b0",
-              backgroundImage: "url(/images/about/profile.jpg)",
+              backgroundImage: `url(${aboutInfo.profileImageUrl})`,
               backgroundSize: "cover",
               backgroundPosition: "center",
               boxShadow: "0 20px 50px rgba(0,0,0,0.6)",
@@ -44,7 +46,7 @@ export default function About() {
         {/* Right Section - Content */}
         <Box
           sx={{
-            backgroundColor: "#faf8f5",
+            backgroundColor: aboutInfo.backgroundColor,
             p: { xs: 4, md: 8 },
             display: "flex",
             flexDirection: "column",
@@ -76,7 +78,7 @@ export default function About() {
               lineHeight: 1.1,
             }}
           >
-            Richard
+            {aboutInfo.name}
             <span
               style={{
                 fontStyle: "italic",
@@ -84,7 +86,7 @@ export default function About() {
                 marginLeft: "0.3em",
               }}
             >
-              Sanchez
+              {aboutInfo.nameItalic}
             </span>
           </h1>
 
@@ -99,7 +101,7 @@ export default function About() {
               textTransform: "uppercase",
             }}
           >
-            Photographer
+            {aboutInfo.title}
           </p>
 
           {/* Description */}
@@ -112,14 +114,7 @@ export default function About() {
               maxWidth: "500px",
             }}
           >
-            Con más de una década de experiencia en fotografía profesional, he
-            dedicado mi carrera a capturar los momentos más significativos de la
-            vida. Desde retratos íntimos hasta sesiones de moda de gran escala,
-            mi enfoque se centra en la autenticidad y la expresión visual. Cada
-            proyecto es una oportunidad para contar historias únicas a través del
-            lente, combinando técnica artística con una sensibilidad especial hacia
-            la luz, la composición y el detalle. Mi trabajo ha sido expuesto en
-            galerías internacionales y ha colaborado con marcas reconocidas globalmente.
+            {bioText}
           </p>
 
           {/* Divider Line */}
@@ -151,9 +146,9 @@ export default function About() {
               >
                 📞
               </Box>
-              <p style={{ margin: 0, fontSize: "0.9rem", color: "#2a2a2a" }}>
-                123-456-7890
-              </p>
+              <a href={`tel:${aboutInfo.phone.replace(/\s+/g, "")}`} style={{ margin: 0, fontSize: "0.9rem", color: "#2a2a2a", textDecoration: "none" }}>
+                {aboutInfo.phone}
+              </a>
             </Box>
 
             {/* Email */}
@@ -174,9 +169,9 @@ export default function About() {
               >
                 ✉️
               </Box>
-              <p style={{ margin: 0, fontSize: "0.9rem", color: "#2a2a2a" }}>
-                hello@reallygreatsite.com
-              </p>
+              <a href={`mailto:${aboutInfo.email}`} style={{ margin: 0, fontSize: "0.9rem", color: "#2a2a2a", textDecoration: "none" }}>
+                {aboutInfo.email}
+              </a>
             </Box>
           </Box>
         </Box>

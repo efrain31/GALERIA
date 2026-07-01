@@ -4,53 +4,16 @@ import { Box, Container } from "@mui/material";
 import Link from "next/link";
 import BackArrow from "@/components/BackArrow";
 import { useLanguageToggle, translations } from "@/hooks/useLanguageToggle";
+import { categories, mainPageConfig } from "@/lib/data";
 
 export default function Galeria() {
   const isJapanese = useLanguageToggle();
-  const tableOfText = isJapanese ? "コンテンツ" : "TABLE OF";
-  const contentsText = isJapanese ? "目次" : "CONTENTS";
-  const workWithMeText = isJapanese ? "一緒に働きましょう →" : "WORK WITH ME →";
-  const categories = [
-    {
-      id: "01",
-      title: "PORTRAIT PHOTOGRAPHY",
-      description: "Short description here",
-      href: "/galeria/portrait",
-    },
-    {
-      id: "02",
-      title: "COMMERCIAL PHOTOGRAPHY",
-      description: "Short description here",
-      href: "/galeria/commercial",
-    },
-    {
-      id: "03",
-      title: "LANDSCAPE PHOTOGRAPHY",
-      description: "Short description here",
-      href: "/galeria/landscape",
-    },
-    {
-      id: "04",
-      title: "EVENT PHOTOGRAPHY",
-      description: "Short description here",
-      href: "/galeria/event",
-    },
-    {
-      id: "05",
-      title: "FASHION PHOTOGRAPHY",
-      description: "Short description here",
-      href: "/galeria/fashion",
-    },
-    {
-      id: "06",
-      title: "EDITORIAL PHOTOGRAPHY",
-      description: "Short description here",
-      href: "/galeria/editorial",
-    },
-  ];
+  const tableOfText = isJapanese ? mainPageConfig.tableOfLabelJa : mainPageConfig.tableOfLabel;
+  const contentsText = isJapanese ? mainPageConfig.contentsLabelJa : mainPageConfig.contentsLabel;
+  const workWithMeText = isJapanese ? "一緒に働きましょう →" : mainPageConfig.workWithMeLink;
 
   return (
-    <Box sx={{ backgroundColor: "#faf8f5", minHeight: "100vh", py: { xs: 6, md: 10 } }}>
+    <div suppressHydrationWarning style={{ backgroundColor: mainPageConfig.backgroundColor, minHeight: "100vh", padding: "2.5rem 0" }}>
       <Container maxWidth="lg">
         {/* Header */}
         <Box sx={{ mb: 2, display: "flex", justifyContent: "space-between", alignItems: "flex-start" }}>
@@ -133,7 +96,7 @@ export default function Galeria() {
                   position: "relative",
                   backgroundColor: "#d0d0d0",
                   borderRadius: "4px",
-                  backgroundImage: "url(/images/galeria/sample1.jpg)",
+                  backgroundImage: `url(${mainPageConfig.sampleImages.leftTop})`,
                   backgroundSize: "cover",
                   backgroundPosition: "center",
                 }}
@@ -145,7 +108,7 @@ export default function Galeria() {
                   position: "relative",
                   backgroundColor: "#d0d0d0",
                   borderRadius: "4px",
-                  backgroundImage: "url(/images/galeria/sample2.jpg)",
+                  backgroundImage: `url(${mainPageConfig.sampleImages.rightTop})`,
                   backgroundSize: "cover",
                   backgroundPosition: "center",
                 }}
@@ -208,7 +171,7 @@ export default function Galeria() {
                   position: "relative",
                   backgroundColor: "#d0d0d0",
                   borderRadius: "4px",
-                  backgroundImage: "url(/images/galeria/sample3.jpg)",
+                  backgroundImage: `url(${mainPageConfig.sampleImages.leftBottom1})`,
                   backgroundSize: "cover",
                   backgroundPosition: "center",
                 }}
@@ -220,7 +183,7 @@ export default function Galeria() {
                   position: "relative",
                   backgroundColor: "#d0d0d0",
                   borderRadius: "4px",
-                  backgroundImage: "url(/images/galeria/sample4.jpg)",
+                  backgroundImage: `url(${mainPageConfig.sampleImages.leftBottom2})`,
                   backgroundSize: "cover",
                   backgroundPosition: "center",
                 }}
@@ -324,6 +287,6 @@ export default function Galeria() {
           </Link>
         </Box>
       </Container>
-    </Box>
+    </div>
   );
 }

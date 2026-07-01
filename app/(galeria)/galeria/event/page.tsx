@@ -1,12 +1,16 @@
 import ThreeColumnLayout from "@/components/layouts/ThreeColumnLayout";
+import { categories, eventImagesData } from "@/lib/data";
 
 export default function EventPage() {
+  const eventCategory = categories[3];
+
   return (
     <ThreeColumnLayout
       categoria="event"
-      title="EVENT PHOTOGRAPHY"
-      number="04"
-      description="Professional event and corporate photography documenting life's most important moments."
+      title={eventCategory.title}
+      number={eventCategory.id}
+      description={eventCategory.description}
+      images={eventImagesData}
     />
   );
 }

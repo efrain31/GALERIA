@@ -1,13 +1,17 @@
 import SliderImageGridLayout from "@/components/layouts/SliderImageGridLayout";
+import { categories, fashionImagesData } from "@/lib/data";
 
 export default function FashionPage() {
+  const fashionCategory = categories[4];
+
   return (
     <SliderImageGridLayout
       categoria="fashion"
-      title="FASHION PHOTOGRAPHY"
-      number="05"
-      description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis tempor congue nulla, id condimentum eros mattis ac. Sed vulputate justo justo, eget ullamcorper metus rhoncus sed. Sed at consequat odio."
-      totalImages={9}
+      title={fashionCategory.title}
+      number={fashionCategory.id}
+      description={fashionCategory.description}
+      images={fashionImagesData}
+      totalImages={fashionCategory.totalImages}
     />
   );
 }

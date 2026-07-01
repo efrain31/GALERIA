@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import RootLayoutClient from "./RootLayoutClient";
 
 export const metadata: Metadata = {
   title: "Galería de Arte",
@@ -14,7 +15,7 @@ export default function RootLayout({
   return (
     <html lang="es">
       <body style={{ margin: 0, padding: 0, backgroundColor: "#000", color: "#fff" }}>
-        {children}
+        <RootLayoutClient>{children}</RootLayoutClient>
       </body>
     </html>
   );

@@ -5,12 +5,14 @@ import BackArrow from "@/components/BackArrow";
 import LightboxModal from "@/components/LightboxModal";
 import { useLightbox } from "@/hooks/useLightbox";
 import { useLanguageToggle, translations } from "@/hooks/useLanguageToggle";
+import { ImageData } from "@/lib/data";
 import { useState } from "react";
 
 interface SliderCompactLayoutProps {
   categoria: string;
   title: string;
   description: string;
+  images: ImageData[];
   totalImages?: number;
   titleKey?: string;
 }
@@ -19,11 +21,12 @@ export default function SliderCompactLayout({
   categoria,
   title,
   description,
+  images,
   totalImages = 8,
   titleKey = "commercialTitle",
 }: SliderCompactLayoutProps) {
   const imagesPerPage = 2;
-  const totalPages = Math.ceil(totalImages / imagesPerPage);
+  const totalPages = Math.ceil(images.length / imagesPerPage);
   const [currentPage, setCurrentPage] = useState(0);
   const lightbox = useLightbox();
   const isJapanese = useLanguageToggle();
@@ -31,9 +34,7 @@ export default function SliderCompactLayout({
   const displayTitle = isJapanese ? (translations[titleKey]?.ja || title) : (translations[titleKey]?.en || title);
 
   const startIndex = currentPage * imagesPerPage;
-  const currentImages = Array.from({ length: imagesPerPage }, (_, i) => startIndex + i + 1).filter(
-    (num) => num <= totalImages
-  );
+  const currentImages = images.slice(startIndex, startIndex + imagesPerPage);
 
   const handlePrev = () => {
     setCurrentPage((prev) => (prev > 0 ? prev - 1 : totalPages - 1));
@@ -44,7 +45,7 @@ export default function SliderCompactLayout({
   };
 
   return (
-    <Box sx={{ backgroundColor: "#faf8f5", minHeight: "100vh", py: { xs: 6, md: 8 } }}>
+    <div suppressHydrationWarning style={{ backgroundColor: "#faf8f5", minHeight: "100vh", padding: "1.5rem 0" }}>
       <Container maxWidth="lg">
         <Box sx={{ mb: 6 }}>
           <BackArrow href="/galeria" text="_ VOLVER _" />
@@ -93,17 +94,17 @@ export default function SliderCompactLayout({
             mb: 4,
           }}
         >
-          {currentImages.map((item) => (
+          {currentImages.map((image) => (
             <Box
-              key={item}
-              onClick={() => lightbox.openLightbox(item)}
+              key={image.id}
+              onClick={() => lightbox.openLightbox(image.id, image.src)}
               sx={{
                 width: "100%",
                 paddingBottom: "70%",
                 position: "relative",
                 backgroundColor: "#d0d0d0",
                 borderRadius: "4px",
-                backgroundImage: `url(/images/galeria/${item}.png)`,
+                backgroundImage: `url(${image.src})`,
                 backgroundSize: "cover",
                 backgroundPosition: "center",
                 cursor: "pointer",
@@ -184,7 +185,7 @@ export default function SliderCompactLayout({
       {/* Lightbox Modal */}
       <LightboxModal
         isOpen={lightbox.lightboxOpen}
-        imageUrl={`/images/galeria/${lightbox.selectedImage}.png`}
+        imageUrl={lightbox.imageSrc || ""}
         imageAlt={`Imagen ${lightbox.selectedImage}`}
         zoom={lightbox.zoom}
         pan={lightbox.pan}
@@ -202,6 +203,6 @@ export default function SliderCompactLayout({
         MAX_ZOOM={lightbox.MAX_ZOOM}
         MIN_ZOOM={lightbox.MIN_ZOOM}
       />
-    </Box>
+    </div>
   );
 }

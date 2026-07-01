@@ -1,12 +1,16 @@
 import SliderThreeColumnLayout from "@/components/layouts/SliderThreeColumnLayout";
+import { categories, landscapeImagesData } from "@/lib/data";
 
 export default function LandscapePage() {
+  const landscapeCategory = categories[2];
+
   return (
     <SliderThreeColumnLayout
       categoria="landscape"
-      title="LANDSCAPE PHOTOGRAPHY"
-      number="03"
-      description="Stunning landscape and nature photography showcasing the beauty of our world."
+      title={landscapeCategory.title}
+      number={landscapeCategory.id}
+      description={landscapeCategory.description}
+      images={landscapeImagesData}
     />
   );
 }

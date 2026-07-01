@@ -5,7 +5,7 @@ import Link from "next/link";
 import BackArrow from "@/components/BackArrow";
 import LandscapeLayout from "@/components/LandscapeLayout";
 import GalleryGrid from "@/components/GalleryGrid";
-import { galleryCategories } from "@/data/galleryData";
+import { categories } from "@/lib/data";
 import { useLanguageToggle } from "@/hooks/useLanguageToggle";
 
 export default function CategoriaGaleria({
@@ -15,15 +15,15 @@ export default function CategoriaGaleria({
 }) {
   const isJapanese = useLanguageToggle();
   const workWithMeText = isJapanese ? "一緒に働きましょう →" : "WORK WITH ME →";
-  const categoria = params.categoria as keyof typeof galleryCategories;
-  const data = galleryCategories[categoria] || galleryCategories.portrait;
+  const categoria = params.categoria;
+  const data = categories.find(cat => cat.href === `/galeria/${categoria}`) || categories[0];
 
   if (categoria === "landscape") {
     return <LandscapeLayout id={data.id} title={data.title} description={data.description} />;
   }
 
   return (
-    <Box sx={{ backgroundColor: "#faf8f5", minHeight: "100vh", py: { xs: 6, md: 10 } }}>
+    <div suppressHydrationWarning style={{ backgroundColor: "#faf8f5", minHeight: "100vh", padding: "2.5rem 0" }}>
       <Container maxWidth="lg">
         {/* Category Header */}
         <Box sx={{ mb: 8 }}>
@@ -96,8 +96,8 @@ export default function CategoriaGaleria({
         </Box>
 
         {/* Gallery Content Area */}
-        <GalleryGrid images={data.images} columns={{ xs: 1, sm: 2, md: 3, lg: 3 }} />
+        <GalleryGrid images={data.images as any} columns={{ xs: 1, sm: 2, md: 3, lg: 3 }} />
       </Container>
-    </Box>
+    </div>
   );
 }

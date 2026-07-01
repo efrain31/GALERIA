@@ -7,6 +7,7 @@ const ZOOM_STEP = 0.2;
 export const useLightbox = () => {
   const [lightboxOpen, setLightboxOpen] = useState(false);
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
+  const [imageSrc, setImageSrc] = useState<string | null>(null);
   const [zoom, setZoom] = useState(1);
   const [pan, setPan] = useState({ x: 0, y: 0 });
   const [isDragging, setIsDragging] = useState(false);
@@ -19,8 +20,9 @@ export const useLightbox = () => {
     setPan({ x: 0, y: 0 });
   }, []);
 
-  const openLightbox = (imageNum: number | string) => {
-    setSelectedImage(imageNum.toString());
+  const openLightbox = (imageId: number | string, src?: string) => {
+    setSelectedImage(imageId.toString());
+    setImageSrc(src || null);
     setLightboxOpen(true);
     setZoom(1);
     setPan({ x: 0, y: 0 });
@@ -29,6 +31,7 @@ export const useLightbox = () => {
   const closeLightbox = () => {
     setLightboxOpen(false);
     setSelectedImage(null);
+    setImageSrc(null);
     setZoom(1);
     setPan({ x: 0, y: 0 });
   };
@@ -99,6 +102,7 @@ export const useLightbox = () => {
   return {
     lightboxOpen,
     selectedImage,
+    imageSrc,
     zoom,
     pan,
     isDragging,

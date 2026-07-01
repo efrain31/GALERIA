@@ -1,13 +1,19 @@
 import SliderTwoColumnLayout from "@/components/layouts/SliderTwoColumnLayout";
+import { categories, portraitImagesData } from "@/lib/data";
 
 export default function PortraitPage() {
+  const portraitCategory = categories[0];
+
   return (
     <SliderTwoColumnLayout
       categoria="portrait"
-      title="PORTRAIT PHOTOGRAPHY"
-      tagline="THE BEAUTY OF IMPERFECTION"
-      description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis tempor congue nulla, id condimentum eros mattis ac. Sed vulputate justo justo, eget ullamcorper metus rhoncus sed. Sed at consequat odio."
-      totalImages={12}
+      title={portraitCategory.title}
+      tagline={portraitCategory.tagline}
+      description={portraitCategory.description}
+      images={portraitImagesData}
+      totalImages={portraitCategory.totalImages}
+      titleKey={portraitCategory.titleKey}
+      taglineKey={portraitCategory.taglineKey}
     />
   );
 }

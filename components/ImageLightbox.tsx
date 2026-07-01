@@ -163,24 +163,28 @@ export default function ImageLightbox({ src, alt, thumbnail }: ImageLightboxProp
 
             <Box sx={{ display: 'flex', gap: 0.5 }}>
               <Tooltip title="Zoom In (Scroll Up)">
-                <IconButton
-                  size="small"
-                  onClick={zoomIn}
-                  disabled={zoom >= MAX_ZOOM}
-                  sx={{ color: 'white' }}
-                >
-                  <AddIcon />
-                </IconButton>
+                <span>
+                  <IconButton
+                    size="small"
+                    onClick={zoomIn}
+                    disabled={zoom >= MAX_ZOOM}
+                    sx={{ color: 'white' }}
+                  >
+                    <AddIcon />
+                  </IconButton>
+                </span>
               </Tooltip>
               <Tooltip title="Zoom Out (Scroll Down)">
-                <IconButton
-                  size="small"
-                  onClick={zoomOut}
-                  disabled={zoom <= MIN_ZOOM}
-                  sx={{ color: 'white' }}
-                >
-                  <RemoveIcon />
-                </IconButton>
+                <span>
+                  <IconButton
+                    size="small"
+                    onClick={zoomOut}
+                    disabled={zoom <= MIN_ZOOM}
+                    sx={{ color: 'white' }}
+                  >
+                    <RemoveIcon />
+                  </IconButton>
+                </span>
               </Tooltip>
               <Tooltip title="Reset View">
                 <IconButton
@@ -231,8 +235,11 @@ export default function ImageLightbox({ src, alt, thumbnail }: ImageLightboxProp
               alt={alt}
               onLoad={handleImageLoad}
               style={{
-                maxWidth: '90vw',
+                width: 'auto',
+                height: 'auto',
+                maxWidth: '95vw',
                 maxHeight: 'calc(100vh - 70px)',
+                objectFit: 'contain',
                 userSelect: 'none',
                 transform: `scale(${zoom}) translate(${pan.x}px, ${pan.y}px)`,
                 transition: isDragging ? 'none' : 'transform 0.2s ease',

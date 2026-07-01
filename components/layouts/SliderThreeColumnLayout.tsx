@@ -6,6 +6,7 @@ import LightboxModal from "@/components/LightboxModal";
 import { useLightbox } from "@/hooks/useLightbox";
 import BackArrow from "@/components/BackArrow";
 import { useLanguageToggle, translations } from "@/hooks/useLanguageToggle";
+import { ImageData } from "@/lib/data";
 import { useState } from "react";
 
 interface SliderThreeColumnLayoutProps {
@@ -13,6 +14,7 @@ interface SliderThreeColumnLayoutProps {
   title: string;
   number: string;
   description: string;
+  images: ImageData[];
   totalImages?: number;
   titleKey?: string;
 }
@@ -22,11 +24,12 @@ export default function SliderThreeColumnLayout({
   title,
   number,
   description,
+  images,
   totalImages = 10,
   titleKey = "landscapeTitle",
 }: SliderThreeColumnLayoutProps) {
   const imagesPerPage = 5;
-  const totalPages = Math.ceil(totalImages / imagesPerPage);
+  const totalPages = Math.ceil(images.length / imagesPerPage);
   const [currentPage, setCurrentPage] = useState(0);
   const lightbox = useLightbox();
   const isJapanese = useLanguageToggle();
@@ -34,9 +37,7 @@ export default function SliderThreeColumnLayout({
   const displayTitle = isJapanese ? (translations[titleKey]?.ja || title) : (translations[titleKey]?.en || title);
 
   const startIndex = currentPage * imagesPerPage;
-  const currentImages = Array.from({ length: imagesPerPage }, (_, i) => startIndex + i + 1).filter(
-    (num) => num <= totalImages
-  );
+  const currentImages = images.slice(startIndex, startIndex + imagesPerPage);
 
   const handlePrev = () => {
     setCurrentPage((prev) => (prev > 0 ? prev - 1 : totalPages - 1));
@@ -47,7 +48,7 @@ export default function SliderThreeColumnLayout({
   };
 
   return (
-    <Box sx={{ backgroundColor: "#faf8f5", minHeight: "100vh", py: { xs: 6, md: 8 } }}>
+    <div suppressHydrationWarning style={{ backgroundColor: "#faf8f5", minHeight: "100vh", padding: "1.5rem 0" }}>
       <Container maxWidth="lg">
         <Box sx={{ mb: 6 }}>
           <BackArrow href="/galeria" text="_ VOLVER _" />
@@ -64,37 +65,40 @@ export default function SliderThreeColumnLayout({
         >
           {/* Left Column */}
           <Box>
-            <Box
-              sx={{
-                width: "100%",
-                paddingBottom: "120%",
-                position: "relative",
-                backgroundColor: "#d0d0d0",
-                borderRadius: "4px",
-                backgroundImage: `url(/images/galeria/${categoria}-${currentImages[0] || 1}.jpg)`,
-                backgroundSize: "cover",
-                backgroundPosition: "center",
-                cursor: "pointer",
-                transition: "transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94)",
-                "&:hover": {
-                  transform: "scale(1.15)",
-                },
-                overflow: "hidden",
-                mb: 3,
-              }}
-            />
+            {currentImages[0] && (
+              <Box
+                onClick={() => lightbox.openLightbox(currentImages[0].id, currentImages[0].src)}
+                sx={{
+                  width: "100%",
+                  paddingBottom: "120%",
+                  position: "relative",
+                  backgroundColor: "#d0d0d0",
+                  borderRadius: "4px",
+                  backgroundImage: `url(${currentImages[0].src})`,
+                  backgroundSize: "cover",
+                  backgroundPosition: "center",
+                  cursor: "pointer",
+                  transition: "transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94)",
+                  "&:hover": {
+                    transform: "scale(1.15)",
+                  },
+                  overflow: "hidden",
+                  mb: 3,
+                }}
+              />
+            )}
             <Box sx={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 2 }}>
-              {currentImages.slice(1, 3).map((item) => (
+              {currentImages.slice(1, 3).map((image) => (
                 <Box
-                  key={item}
-                onClick={() => lightbox.openLightbox(item)}
+                  key={image.id}
+                  onClick={() => lightbox.openLightbox(image.id, image.src)}
                   sx={{
                     width: "100%",
                     paddingBottom: "100%",
                     position: "relative",
                     backgroundColor: "#d0d0d0",
                     borderRadius: "4px",
-                    backgroundImage: `url(/images/galeria/${item}2.png)`,
+                    backgroundImage: `url(${image.src})`,
                     backgroundSize: "cover",
                     backgroundPosition: "center",
                     cursor: "pointer",
@@ -149,17 +153,17 @@ export default function SliderThreeColumnLayout({
 
           {/* Right Column */}
           <Box sx={{ display: "flex", flexDirection: "column", gap: 3 }}>
-            {currentImages.slice(3, 5).map((item) => (
+            {currentImages.slice(3, 5).map((image, index) => (
               <Box
-                key={item}
-                onClick={() => lightbox.openLightbox(item)}
+                key={image.id}
+                onClick={() => lightbox.openLightbox(image.id, image.src)}
                 sx={{
                   width: "100%",
-                  paddingBottom: item === currentImages[3] ? "80%" : "100%",
+                  paddingBottom: index === 0 ? "80%" : "100%",
                   position: "relative",
                   backgroundColor: "#d0d0d0",
                   borderRadius: "4px",
-                  backgroundImage: `url(/images/galeria/${item}.png)`,
+                  backgroundImage: `url(${image.src})`,
                   backgroundSize: "cover",
                   backgroundPosition: "center",
                   cursor: "pointer",
@@ -241,7 +245,7 @@ export default function SliderThreeColumnLayout({
       {/* Lightbox Modal */}
       <LightboxModal
         isOpen={lightbox.lightboxOpen}
-        imageUrl={`/images/galeria/${lightbox.selectedImage}.png`}
+        imageUrl={lightbox.imageSrc || ""}
         imageAlt={`Imagen ${lightbox.selectedImage}`}
         zoom={lightbox.zoom}
         pan={lightbox.pan}
@@ -259,6 +263,6 @@ export default function SliderThreeColumnLayout({
         MAX_ZOOM={lightbox.MAX_ZOOM}
         MIN_ZOOM={lightbox.MIN_ZOOM}
       />
-    </Box>
+    </div>
   );
 }
