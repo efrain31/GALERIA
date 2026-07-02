@@ -52,7 +52,7 @@ export default function SliderTwoColumnLayout({
   return (
     <div suppressHydrationWarning style={{ backgroundColor: "#faf8f5", minHeight: "100vh", padding: "1.5rem 0" }}>
       <Container maxWidth="lg">
-        <Box sx={{ mb: 6 }}>
+        <Box sx={{ mb: { xs: 8, md: 12 } }}>
           <BackArrow href="/galeria" text="_ VOLVER _" />
         </Box>
 

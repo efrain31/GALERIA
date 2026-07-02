@@ -19,7 +19,7 @@ export default function CompactLayout({
   return (
     <Box sx={{ backgroundColor: "#faf8f5", minHeight: "100vh", py: { xs: 6, md: 8 } }}>
       <Container maxWidth="lg">
-        <Box sx={{ mb: 6 }}>
+        <Box sx={{ mb: { xs: 8, md: 12 } }}>
           <BackArrow href="/galeria" text="_ VOLVER _" />
         </Box>
 

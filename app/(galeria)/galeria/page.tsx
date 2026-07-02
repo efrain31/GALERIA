@@ -4,7 +4,7 @@ import { Box, Container } from "@mui/material";
 import Link from "next/link";
 import BackArrow from "@/components/BackArrow";
 import PromotionalBanner from "@/components/PromotionalBanner";
-import { useLanguageToggle, translations } from "@/hooks/useLanguageToggle";
+import { useLanguageToggle } from "@/hooks/useLanguageToggle";
 import { categories, mainPageConfig } from "@/lib/data";
 
 export default function Galeria() {
@@ -207,7 +207,7 @@ export default function Galeria() {
             <Box sx={{ borderBottom: "2px solid #2a2a2a", mb: 3 }} />
 
             {/* Categories 05-06 */}
-            {categories.slice(4).map((category) => (
+            {categories.slice(4, 6).map((category) => (
               <Link key={category.id} href={category.href} style={{ textDecoration: "none" }}>
                 <Box
                   sx={{
@@ -290,7 +290,7 @@ export default function Galeria() {
       </Container>
 
       {/* Promotional Banner */}
-      <Box sx={{ mt: { xs: 6, md: 8 }, mb: { xs: 8, md: 12 } }}>
+      <Box sx={{ mt: { xs: 6, md: 8 }, mb: { xs: 6, md: 8 } }}>
         <PromotionalBanner
           title={isJapanese ? "ポートレート写真" : "PORTRAIT PHOTOGRAPHY"}
           description={isJapanese
@@ -298,6 +298,115 @@ export default function Galeria() {
             : "Capturing the essence and personality of individuals through intimate and expressive portraits."}
           imageUrl="/images/galeria/2.png"
           linkHref="/galeria/portrait"
+        />
+      </Box>
+
+      {/* FULL HOUSE Section Header */}
+      <Box sx={{ mt: { xs: 8, md: 12 }, mb: { xs: 4, md: 11 }, display: "flex", justifyContent: "flex-end", pr: { xs: 2, md: 20 } }}>
+        <Box sx={{ textAlign: "right", width: "100%" }}>
+          <h2
+            style={{
+              fontSize: "clamp(2.5rem, 12vw, 4.5rem)",
+              color: "#ff0000",
+              margin: "0 0 1.5rem 0",
+              fontWeight: 900,
+              letterSpacing: "-5px",
+              lineHeight: 1,
+              textAlign: "right",
+            }}
+          >
+            {isJapanese ? "( フルハウス )" : "( FULL HOUSE )"}
+          </h2>
+          <Box sx={{ width: "100%", borderBottom: "2px solid #2a2a2a" }} />
+        </Box>
+      </Box>
+
+      {/* Categories 07-08 List - Between Main Banner and Parallel Banners */}
+      <Container maxWidth="lg">
+        <Box sx={{ mt: { xs: 4, md: 6 }, mb: { xs: 8, md: 12 } }}>
+          {categories.slice(6, 8).map((category) => (
+            <Link key={category.id} href={category.href} style={{ textDecoration: "none" }}>
+              <Box
+                sx={{
+                  mb: 2,
+                  pb: 2,
+                  borderBottom: "1px solid #2a2a2a",
+                  cursor: "pointer",
+                  transition: "all 0.3s ease",
+                  "&:hover": {
+                    transform: "translateX(5px)",
+                  },
+                }}
+              >
+                <Box sx={{ display: "flex", gap: 2, alignItems: "flex-start" }}>
+                  <h3
+                    style={{
+                      fontSize: "clamp(1.2rem, 3vw, 1.5rem)",
+                      fontWeight: 900,
+                      color: "#2a2a2a",
+                      margin: 0,
+                    }}
+                  >
+                    {category.id}
+                  </h3>
+                  <Box>
+                    <h4
+                      style={{
+                        fontSize: "clamp(0.7rem, 2.5vw, 0.8rem)",
+                        fontWeight: 700,
+                        color: "#2a2a2a",
+                        margin: 0,
+                        letterSpacing: "0.5px",
+                        textTransform: "uppercase",
+                      }}
+                    >
+                      {category.title}
+                    </h4>
+                    <p
+                      style={{
+                        fontSize: "clamp(0.65rem, 2vw, 0.7rem)",
+                        color: "#666",
+                        margin: "0.2rem 0 0 0",
+                      }}
+                    >
+                      {category.description}
+                    </p>
+                  </Box>
+                </Box>
+              </Box>
+            </Link>
+          ))}
+        </Box>
+      </Container>
+
+      {/* Parallel Promotional Banners */}
+      <Box
+        sx={{
+          display: "grid",
+          gridTemplateColumns: { xs: "1fr", md: "1fr 1fr" },
+          gap: { xs: 4, md: 6 },
+          mt: { xs: 6, md: 10 },
+          mb: { xs: 8, md: 12 },
+        }}
+      >
+        {/* Shot Hearts Banner */}
+        <PromotionalBanner
+          title={isJapanese ? "ショット・ハーツ" : "SHOT HEARTS"}
+          description={isJapanese
+            ? "感情的なポートレートを通じて生の感情と親密な瞬間をキャプチャします。"
+            : "Capturing raw emotions and intimate moments through striking portraiture."}
+          imageUrl="/images/galeria/2.png"
+          linkHref="/galeria/shot-hearts"
+        />
+
+        {/* Full Heaven/Hell Banner */}
+        <PromotionalBanner
+          title={isJapanese ? "フル・ヘブン/ヘル" : "FULL HEAVEN/HELL"}
+          description={isJapanese
+            ? "光と影の対比、美と混乱の二面性を探る写真作品。"
+            : "Exploring the contrast between light and shadow, beauty and chaos."}
+          imageUrl="/images/galeria/2.png"
+          linkHref="/galeria/full-haven-hell"
         />
       </Box>
     </div>

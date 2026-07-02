@@ -116,6 +116,30 @@ export const editorialImagesData: ImageData[] = [
   { id: "editorial-12", src: "/images/galeria/5.png", alt: "Editorial photograph 12" },
 ];
 
+// Shot Hearts Gallery
+export const shotHeartsImagesData: ImageData[] = [
+  { id: "shotHearts-1", src: "/images/galeria/2.png", alt: "Shot Hearts 1" },
+  { id: "shotHearts-2", src: "/images/galeria/3.png", alt: "Shot Hearts 2" },
+  { id: "shotHearts-3", src: "/images/galeria/4.png", alt: "Shot Hearts 3" },
+  { id: "shotHearts-4", src: "/images/galeria/5.png", alt: "Shot Hearts 4" },
+  { id: "shotHearts-5", src: "/images/galeria/2.png", alt: "Shot Hearts 5" },
+  { id: "shotHearts-6", src: "/images/galeria/3.png", alt: "Shot Hearts 6" },
+  { id: "shotHearts-7", src: "/images/galeria/4.png", alt: "Shot Hearts 7" },
+  { id: "shotHearts-8", src: "/images/galeria/5.png", alt: "Shot Hearts 8" },
+];
+
+// Full Heaven/Hell Gallery
+export const fullHavenHellImagesData: ImageData[] = [
+  { id: "haven-1", src: "/images/galeria/2.png", alt: "Full Haven/Hell 1" },
+  { id: "haven-2", src: "/images/galeria/3.png", alt: "Full Haven/Hell 2" },
+  { id: "haven-3", src: "/images/galeria/4.png", alt: "Full Haven/Hell 3" },
+  { id: "haven-4", src: "/images/galeria/5.png", alt: "Full Haven/Hell 4" },
+  { id: "haven-5", src: "/images/galeria/2.png", alt: "Full Haven/Hell 5" },
+  { id: "haven-6", src: "/images/galeria/3.png", alt: "Full Haven/Hell 6" },
+  { id: "haven-7", src: "/images/galeria/4.png", alt: "Full Haven/Hell 7" },
+  { id: "haven-8", src: "/images/galeria/5.png", alt: "Full Haven/Hell 8" },
+];
+
 // Categories Data
 export const categories: CategoryData[] = [
   {
@@ -189,6 +213,30 @@ export const categories: CategoryData[] = [
     href: "/galeria/editorial",
     images: editorialImagesData,
     totalImages: editorialImagesData.length,
+  },
+  {
+    id: "07",
+    title: "SHOT HEARTS",
+    titleKey: "shotHeartsTitle",
+    tagline: "EMOTIONAL PORTRAITS",
+    taglineKey: "shotHeartsTagline",
+    description: "Capturing raw emotions and intimate moments through striking portraiture.",
+    descriptionKey: "shotHeartsDescription",
+    href: "/galeria/shot-hearts",
+    images: shotHeartsImagesData,
+    totalImages: shotHeartsImagesData.length,
+  },
+  {
+    id: "08",
+    title: "FULL HEAVEN/HELL",
+    titleKey: "fullHavenHellTitle",
+    tagline: "DUALITY IN LIGHT",
+    taglineKey: "fullHavenHellTagline",
+    description: "Exploring the contrast between light and shadow, beauty and chaos.",
+    descriptionKey: "fullHavenHellDescription",
+    href: "/galeria/full-haven-hell",
+    images: fullHavenHellImagesData,
+    totalImages: fullHavenHellImagesData.length,
   },
 ];
 

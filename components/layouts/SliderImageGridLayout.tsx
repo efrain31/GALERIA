@@ -49,11 +49,11 @@ export default function SliderImageGridLayout({
   return (
     <div suppressHydrationWarning style={{ backgroundColor: "#faf8f5", minHeight: "100vh", padding: "1.5rem 0" }}>
       <Container maxWidth="lg">
-        <Box sx={{ mb: 6 }}>
+        <Box sx={{ mb: { xs: 8, md: 12 } }}>
           <BackArrow href="/galeria" text="_ VOLVER _" />
         </Box>
 
-        <Box sx={{ mb: { xs: 4, md: 8 }, p: { xs: 1.5, md: 0 } }}>
+        <Box sx={{ mb: { xs: 8, md: 12 }, p: { xs: 1.5, md: 0 } }}>
           <h2
             style={{
               fontSize: "clamp(0.7rem, 2.5vw, 0.85rem)",

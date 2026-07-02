@@ -6,7 +6,7 @@ export const useLanguageToggle = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       setIsJapanese((prev) => !prev);
-    }, 7000);
+    }, 5000);
 
     return () => clearInterval(interval);
   }, []);

@@ -3,6 +3,8 @@
 import { Box } from '@mui/material';
 import Link from 'next/link';
 import Image from 'next/image';
+import { useEffect, useRef, useState } from 'react';
+import { keyframes } from '@emotion/react';
 
 interface PromotionalBannerProps {
   title: string;
@@ -17,9 +19,49 @@ export default function PromotionalBanner({
   imageUrl,
   linkHref = '/galeria/portrait',
 }: PromotionalBannerProps) {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const [hasAnimated, setHasAnimated] = useState(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting && !hasAnimated) {
+          setHasAnimated(true);
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.3 }
+    );
+
+    if (containerRef.current) {
+      observer.observe(containerRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, [hasAnimated]);
+
+  const doorLeft = keyframes`
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-100%);
+    }
+  `;
+
+  const doorRight = keyframes`
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(100%);
+    }
+  `;
+
   return (
     <Link href={linkHref} style={{ textDecoration: 'none' }}>
       <Box
+        ref={containerRef}
         sx={{
           display: 'grid',
           gridTemplateColumns: { xs: '1fr', md: '1fr 1fr' },
@@ -28,6 +70,7 @@ export default function PromotionalBanner({
           overflow: 'hidden',
           cursor: 'pointer',
           transition: 'all 0.4s ease',
+          position: 'relative',
           '&:hover': {
             backgroundColor: '#252525',
             '& img': {
@@ -36,6 +79,34 @@ export default function PromotionalBanner({
           },
         }}
       >
+        {hasAnimated && (
+          <>
+            <Box
+              sx={{
+                position: 'absolute',
+                top: 0,
+                left: 0,
+                width: '50%',
+                height: '100%',
+                backgroundColor: '#000',
+                zIndex: 10,
+                animation: `${doorLeft} 1.6s ease-in-out forwards`,
+              }}
+            />
+            <Box
+              sx={{
+                position: 'absolute',
+                top: 0,
+                right: 0,
+                width: '50%',
+                height: '100%',
+                backgroundColor: '#000',
+                zIndex: 10,
+                animation: `${doorRight} 1.6s ease-in-out forwards`,
+              }}
+            />
+          </>
+        )}
         {/* Left Content */}
         <Box
           sx={{
