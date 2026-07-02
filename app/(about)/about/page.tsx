@@ -56,12 +56,12 @@ export default function About() {
           }}
         >
           {/* Arrow Link - Top Right */}
-          <Link href="/galeria" style={{ textDecoration: "none", position: "absolute", top: "2rem", right: "2rem" }}>
-            <Box sx={{ display: "flex", alignItems: "center", gap: 1.5, cursor: "pointer" }}>
-              <p style={{ fontSize: "0.75rem", margin: 0, letterSpacing: "1px", color: "#ff0000", fontWeight: 600 }}>
+          <Link href="/galeria" style={{ textDecoration: "none", position: "absolute", top: "clamp(1rem, 3vw, 2rem)", right: "clamp(1rem, 3vw, 2rem)" }}>
+            <Box sx={{ display: "flex", alignItems: "center", gap: { xs: 1, md: 1.5 }, cursor: "pointer" }}>
+              <p style={{ fontSize: "clamp(0.65rem, 2.5vw, 0.75rem)", margin: 0, letterSpacing: "1px", color: "#ff0000", fontWeight: 600 }}>
                 {galleryText}
               </p>
-              <p style={{ fontSize: "1.5rem", margin: 0, color: "#ff0000", fontWeight: "bold" }}>
+              <p style={{ fontSize: "clamp(1.2rem, 5vw, 1.5rem)", margin: 0, color: "#ff0000", fontWeight: "bold" }}>
                 →
               </p>
             </Box>
