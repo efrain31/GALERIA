@@ -99,7 +99,7 @@ export default function LightboxModal({
             </Box>
           </Tooltip>
           {zoom > 1 && (
-            <Tooltip title="Modo pan activo - arrastra para mover">
+            <Tooltip title="">
               <Box
                 sx={{
                   display: 'flex',
@@ -111,7 +111,7 @@ export default function LightboxModal({
                 }}
               >
                 <PanToolIcon sx={{ fontSize: '1rem' }} />
-                PAN ACTIVO
+                <span>Arrastra para mover</span>
               </Box>
             </Tooltip>
           )}
@@ -182,7 +182,7 @@ export default function LightboxModal({
             </IconButton>
           </Tooltip>
           <Box sx={{ width: '1px', height: '24px', backgroundColor: 'rgba(255, 255, 255, 0.1)', mx: 0.5 }} />
-          <Tooltip title="Cerrar (ESC)">
+          <Tooltip title="Cerrar (Esc)">
             <IconButton
               size="small"
               onClick={onClose}
@@ -258,10 +258,10 @@ export default function LightboxModal({
         >
           <span> Scroll para zoom</span>
           <span> Arrastra para mover con zoom</span>
-          <span>ESC para cerrar</span>
+          <span>Esc</span>
         </Box>
         <Box sx={{ color: '#ff0000', fontSize: '0.9rem', fontWeight: 600 }}>
-          {zoom > 1 ? 'Modo PAN' : 'Modo VISTA'}
+          {zoom > 1 ? ' ' : 'Modo VISTA'}
         </Box>
       </Box>
     </Box>
