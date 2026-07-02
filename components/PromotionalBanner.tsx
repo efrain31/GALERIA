@@ -66,7 +66,7 @@ export default function PromotionalBanner({
           display: 'grid',
           gridTemplateColumns: { xs: '1fr', md: '1fr 1fr' },
           backgroundColor: '#3b3b3b',
-          minHeight: { xs: 'auto', md: '400px' },
+          minHeight: { xs: 'auto', md: '600px' },
           overflow: 'hidden',
           cursor: 'pointer',
           transition: 'all 0.4s ease',
@@ -115,16 +115,17 @@ export default function PromotionalBanner({
             justifyContent: 'center',
             p: { xs: 3, md: 6 },
             gap: { xs: 2, md: 3 },
+            pl: { xs: 3, md: 40 },
           }}
         >
           <h2
             style={{
-              fontSize: 'clamp(1.8rem, 8vw, 3.5rem)',
+              fontSize: 'clamp(2.5rem, 12vw, 5rem)',
               fontWeight: 900,
               color: '#ff0000',
               margin: 0,
-              letterSpacing: '-1px',
-              lineHeight: 1.2,
+              letterSpacing: '-2px',
+              lineHeight: 0.9,
             }}
           >
             {title}

@@ -3,6 +3,7 @@
 
 import { Box, Container } from "@mui/material";
 import LightboxModal from "@/components/LightboxModal";
+import ScrollToTopButton from "@/components/ScrollToTopButton";
 import { useLightbox } from "@/hooks/useLightbox";
 import BackArrow from "@/components/BackArrow";
 import { useLanguageToggle, translations } from "@/hooks/useLanguageToggle";
@@ -265,6 +266,8 @@ export default function SliderThreeColumnLayout({
         MAX_ZOOM={lightbox.MAX_ZOOM}
         MIN_ZOOM={lightbox.MIN_ZOOM}
       />
+    
+      <ScrollToTopButton />
     </div>
   );
 }

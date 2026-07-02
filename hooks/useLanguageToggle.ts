@@ -43,6 +43,22 @@ export const translations: Record<string, { en: string; ja: string }> = {
     en: "LANDSCAPE PHOTOGRAPHY",
     ja: "風景写真",
   },
+  shotHeartsTitle: {
+    en: "SHOT HEARTS",
+    ja: "ショットハーツ",
+  },
+  galleryTitle: {
+    en: "GALLERY",
+    ja: "ギャラリー",
+  },
+  featuredTitle: {
+    en: "FEATURED",
+    ja: "フィーチャー",
+  },
+  highlightsTitle: {
+    en: "HIGHLIGHTS",
+    ja: "ハイライト",
+  },
   landscapeNumber: {
     en: "03",
     ja: "03",

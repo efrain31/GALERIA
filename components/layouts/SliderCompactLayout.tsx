@@ -3,6 +3,7 @@
 import { Box, Container } from "@mui/material";
 import BackArrow from "@/components/BackArrow";
 import LightboxModal from "@/components/LightboxModal";
+import ScrollToTopButton from "@/components/ScrollToTopButton";
 import { useLightbox } from "@/hooks/useLightbox";
 import { useLanguageToggle, translations } from "@/hooks/useLanguageToggle";
 import { ImageData } from "@/lib/data";
@@ -204,6 +205,8 @@ export default function SliderCompactLayout({
         MAX_ZOOM={lightbox.MAX_ZOOM}
         MIN_ZOOM={lightbox.MIN_ZOOM}
       />
+    
+      <ScrollToTopButton />
     </div>
   );
 }

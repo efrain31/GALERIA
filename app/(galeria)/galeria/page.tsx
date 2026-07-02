@@ -391,7 +391,7 @@ export default function Galeria() {
       >
         {/* Shot Hearts Banner */}
         <PromotionalBanner
-          title={isJapanese ? "ショット・ハーツ" : "SHOT HEARTS"}
+          title={isJapanese ? "ショット・ハーツ" : "SHOT GALERRY"}
           description={isJapanese
             ? "感情的なポートレートを通じて生の感情と親密な瞬間をキャプチャします。"
             : "Capturing raw emotions and intimate moments through striking portraiture."}

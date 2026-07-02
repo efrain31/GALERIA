@@ -90,15 +90,12 @@ export const fashionImagesData: ImageData[] = [
   { id: "fashion-2", src: "/images/galeria/3.png", alt: "Fashion photograph 2" },
   { id: "fashion-3", src: "/images/galeria/4.png", alt: "Fashion photograph 3" },
   { id: "fashion-4", src: "/images/galeria/5.png", alt: "Fashion photograph 4" },
-  { id: "fashion-5", src: "/images/galeria/2.png", alt: "Fashion photograph 5" },
-  { id: "fashion-6", src: "/images/galeria/3.png", alt: "Fashion photograph 6" },
-  { id: "fashion-7", src: "/images/galeria/4.png", alt: "Fashion photograph 7" },
-  { id: "fashion-8", src: "/images/galeria/5.png", alt: "Fashion photograph 8" },
-  { id: "fashion-9", src: "/images/galeria/2.png", alt: "Fashion photograph 9" },
-  { id: "fashion-10", src: "/images/galeria/3.png", alt: "Fashion photograph 10" },
-  { id: "fashion-11", src: "/images/galeria/4.png", alt: "Fashion photograph 11" },
-  { id: "fashion-12", src: "/images/galeria/5.png", alt: "Fashion photograph 12" },
-];
+  { id: "fashion-5", src: "/images/galeria/5.png", alt: "Fashion photograph 5" },
+  { id: "fashion-6", src: "/images/galeria/5.png", alt: "Fashion photograph 6" },
+  { id: "fashion-7", src: "/images/galeria/5.png", alt: "Fashion photograph 7" },
+  { id: "fashion-8", src: "/images/galeria/2.png", alt: "Fashion photograph 8" },
+  { id: "fashion-9", src: "/images/galeria/3.png", alt: "Fashion photograph 9" },
+  ];
 
 // Editorial Photography Gallery
 export const editorialImagesData: ImageData[] = [
@@ -122,10 +119,10 @@ export const shotHeartsImagesData: ImageData[] = [
   { id: "shotHearts-2", src: "/images/galeria/3.png", alt: "Shot Hearts 2" },
   { id: "shotHearts-3", src: "/images/galeria/4.png", alt: "Shot Hearts 3" },
   { id: "shotHearts-4", src: "/images/galeria/5.png", alt: "Shot Hearts 4" },
-  { id: "shotHearts-5", src: "/images/galeria/2.png", alt: "Shot Hearts 5" },
+  { id: "shotHearts-5", src: "/images/galeria/5.png", alt: "Shot Hearts 5" },
   { id: "shotHearts-6", src: "/images/galeria/3.png", alt: "Shot Hearts 6" },
   { id: "shotHearts-7", src: "/images/galeria/4.png", alt: "Shot Hearts 7" },
-  { id: "shotHearts-8", src: "/images/galeria/5.png", alt: "Shot Hearts 8" },
+  { id: "shotHearts-8", src: "/images/galeria/2.png", alt: "Shot Hearts 8" },
 ];
 
 // Full Heaven/Hell Gallery

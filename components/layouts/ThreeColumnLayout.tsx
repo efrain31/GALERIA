@@ -2,10 +2,12 @@
 
 import { Box, Container } from "@mui/material";
 import LightboxModal from "@/components/LightboxModal";
+import ScrollToTopButton from "@/components/ScrollToTopButton";
 import { useLightbox } from "@/hooks/useLightbox";
 import BackArrow from "@/components/BackArrow";
 import { useLanguageToggle, translations } from "@/hooks/useLanguageToggle";
 import { ImageData } from "@/lib/data";
+import { useState } from "react";
 
 interface ThreeColumnLayoutProps {
   categoria: string;
@@ -24,10 +26,24 @@ export default function ThreeColumnLayout({
   images,
   titleKey = "eventTitle",
 }: ThreeColumnLayoutProps) {
+  const imagesPerPage = 6;
+  const totalPages = Math.ceil(images.length / imagesPerPage);
+  const [currentPage, setCurrentPage] = useState(0);
   const lightbox = useLightbox();
   const isJapanese = useLanguageToggle();
 
   const displayTitle = isJapanese ? (translations[titleKey]?.ja || title) : (translations[titleKey]?.en || title);
+
+  const startIndex = currentPage * imagesPerPage;
+  const currentImages = images.slice(startIndex, startIndex + imagesPerPage);
+
+  const handlePrev = () => {
+    setCurrentPage((prev) => (prev > 0 ? prev - 1 : totalPages - 1));
+  };
+
+  const handleNext = () => {
+    setCurrentPage((prev) => (prev < totalPages - 1 ? prev + 1 : 0));
+  };
 
   return (
     <div suppressHydrationWarning style={{ backgroundColor: "#faf8f5", minHeight: "100vh", padding: "1.5rem 0" }}>
@@ -47,16 +63,16 @@ export default function ThreeColumnLayout({
         >
           {/* Left Column */}
           <Box>
-            {images[0] && (
+            {currentImages[0] && (
               <Box
-                onClick={() => lightbox.openLightbox(images[0].id, images[0].src)}
+                onClick={() => lightbox.openLightbox(currentImages[0].id, currentImages[0].src)}
                 sx={{
                   width: "100%",
                   paddingBottom: "120%",
                   position: "relative",
                   backgroundColor: "#d0d0d0",
                   borderRadius: "4px",
-                  backgroundImage: `url(${images[0].src})`,
+                  backgroundImage: `url(${currentImages[0].src})`,
                   backgroundSize: "cover",
                   backgroundPosition: "center",
                   cursor: "pointer",
@@ -70,7 +86,7 @@ export default function ThreeColumnLayout({
               />
             )}
             <Box sx={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: { xs: 1.5, md: 2 } }}>
-              {images.slice(1, 3).map((image) => (
+              {currentImages.slice(1, 3).map((image) => (
                 <Box
                   key={image.id}
                   onClick={() => lightbox.openLightbox(image.id, image.src)}
@@ -135,7 +151,7 @@ export default function ThreeColumnLayout({
 
           {/* Right Column */}
           <Box sx={{ display: "flex", flexDirection: "column", gap: { xs: 2, md: 3 } }}>
-            {images.slice(3, 5).map((image, index) => (
+            {currentImages.slice(3, 5).map((image, index) => (
               <Box
                 key={image.id}
                 onClick={() => lightbox.openLightbox(image.id, image.src)}
@@ -157,8 +173,81 @@ export default function ThreeColumnLayout({
                 }}
               />
             ))}
+            {currentImages.length < 5 && currentImages.length >= 4 && (
+              <Box
+                sx={{
+                  width: "100%",
+                  paddingBottom: "100%",
+                  position: "relative",
+                  backgroundColor: "#d0d0d0",
+                  borderRadius: "4px",
+                }}
+              />
+            )}
           </Box>
         </Box>
+
+        {/* Pagination */}
+        {totalPages > 1 && (
+          <Box
+            sx={{
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+              gap: { xs: 2, md: 4 },
+              mt: { xs: 4, md: 6 },
+              p: { xs: 1.5, md: 0 },
+            }}
+          >
+            <button
+              onClick={handlePrev}
+              style={{
+                background: "none",
+                border: "none",
+                fontSize: "clamp(1.2rem, 5vw, 2rem)",
+                color: "#ff0000",
+                cursor: "pointer",
+                fontWeight: "bold",
+                padding: "clamp(0.3rem, 1vw, 1rem) clamp(0.5rem, 2vw, 1rem)",
+                transition: "transform 0.2s",
+              }}
+              onMouseEnter={(e) => (e.currentTarget.style.transform = "scale(1.2)")}
+              onMouseLeave={(e) => (e.currentTarget.style.transform = "scale(1)")}
+            >
+              ←
+            </button>
+
+            <p
+              style={{
+                fontSize: "clamp(0.8rem, 2.5vw, 1.1rem)",
+                color: "#2a2a2a",
+                margin: 0,
+                fontWeight: 600,
+                letterSpacing: "2px",
+              }}
+            >
+              {currentPage + 1} / {totalPages}
+            </p>
+
+            <button
+              onClick={handleNext}
+              style={{
+                background: "none",
+                border: "none",
+                fontSize: "clamp(1.2rem, 5vw, 2rem)",
+                color: "#ff0000",
+                cursor: "pointer",
+                fontWeight: "bold",
+                padding: "clamp(0.3rem, 1vw, 1rem) clamp(0.5rem, 2vw, 1rem)",
+                transition: "transform 0.2s",
+              }}
+              onMouseEnter={(e) => (e.currentTarget.style.transform = "scale(1.2)")}
+              onMouseLeave={(e) => (e.currentTarget.style.transform = "scale(1)")}
+            >
+              →
+            </button>
+          </Box>
+        )}
       </Container>
 
       {/* Lightbox Modal */}
@@ -182,6 +271,8 @@ export default function ThreeColumnLayout({
         MAX_ZOOM={lightbox.MAX_ZOOM}
         MIN_ZOOM={lightbox.MIN_ZOOM}
       />
+    
+      <ScrollToTopButton />
     </div>
   );
 }

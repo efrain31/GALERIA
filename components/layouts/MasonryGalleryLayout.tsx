@@ -7,9 +7,9 @@ import ScrollToTopButton from "@/components/ScrollToTopButton";
 import { useLightbox } from "@/hooks/useLightbox";
 import { useLanguageToggle, translations } from "@/hooks/useLanguageToggle";
 import { ImageData } from "@/lib/data";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
-interface SliderImageGridLayoutProps {
+interface MasonryGalleryLayoutProps {
   categoria: string;
   title: string;
   number: string;
@@ -19,21 +19,24 @@ interface SliderImageGridLayoutProps {
   titleKey?: string;
 }
 
-export default function SliderImageGridLayout({
+interface ScrollAnimationRefs {
+  [key: string]: IntersectionObserver;
+}
+
+export default function MasonryGalleryLayout({
   categoria,
   title,
   number,
   description,
   images,
   totalImages = 8,
-  titleKey = "fashionTitle",
-}: SliderImageGridLayoutProps) {
-  const imagesPerPage = 4;
+  titleKey = "fullHavenHellTitle",
+}: MasonryGalleryLayoutProps) {
+  const imagesPerPage = 6;
   const totalPages = Math.ceil(images.length / imagesPerPage);
   const [currentPage, setCurrentPage] = useState(0);
   const lightbox = useLightbox();
   const isJapanese = useLanguageToggle();
-
   const displayTitle = isJapanese ? (translations[titleKey]?.ja || title) : (translations[titleKey]?.en || title);
 
   const startIndex = currentPage * imagesPerPage;
@@ -45,6 +48,58 @@ export default function SliderImageGridLayout({
 
   const handleNext = () => {
     setCurrentPage((prev) => (prev < totalPages - 1 ? prev + 1 : 0));
+  };
+
+  const containerRef = useRef<HTMLDivElement>(null);
+  const itemRefs = useRef<Map<string, HTMLDivElement>>(new Map());
+
+  useEffect(() => {
+
+    // Crear Intersection Observer para scroll animations
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const element = entry.target as HTMLElement;
+            element.style.opacity = "1";
+            element.style.transform = "translateY(0) scale(1)";
+            observer.unobserve(element);
+          }
+        });
+      },
+      {
+        threshold: 0.1,
+        rootMargin: "50px",
+      }
+    );
+
+    // Observar todas las imágenes
+    itemRefs.current.forEach((element) => {
+      element.style.opacity = "0";
+      element.style.transform = "translateY(30px) scale(0.95)";
+      observer.observe(element);
+    });
+
+    return () => {
+      itemRefs.current.forEach((element) => {
+        observer.unobserve(element);
+      });
+    };
+  }, [currentPage, currentImages]);
+
+  // Calcular span de columnas y filas para efecto de escalera
+  const getGridSpan = (index: number): { colSpan: number; rowSpan: number } => {
+    const pattern = [
+      { colSpan: 1, rowSpan: 1 }, // 0
+      { colSpan: 2, rowSpan: 1 }, // 1
+      { colSpan: 1, rowSpan: 1 }, // 2
+      { colSpan: 1, rowSpan: 1 }, // 3
+      { colSpan: 1, rowSpan: 1 }, // 4
+      { colSpan: 1, rowSpan: 1 }, // 5
+      { colSpan: 2, rowSpan: 2 }, // 6
+      { colSpan: 1, rowSpan: 1 }, // 7
+    ];
+    return pattern[index % pattern.length];
   };
 
   return (
@@ -80,33 +135,65 @@ export default function SliderImageGridLayout({
           </p>
         </Box>
 
-        <Box sx={{ display: "grid", gridTemplateColumns: { xs: "1fr", md: "repeat(2, 1fr)" }, gap: { xs: 1.5, md: 3 }, mb: { xs: 3, md: 4 } }}>
-          {currentImages.map((image) => (
-            <Box
-              key={image.id}
-              onClick={() => lightbox.openLightbox(image.id, image.src)}
-              sx={{
-                width: "100%",
-                paddingBottom: "70%",
-                position: "relative",
-                backgroundColor: "#d0d0d0",
-                borderRadius: "4px",
-                backgroundImage: `url(${image.src})`,
-                backgroundSize: "cover",
-                backgroundPosition: "center",
-                cursor: "pointer",
-                transition: "transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94)",
-                "&:hover": {
-                  transform: "scale(1.15)",
-                },
-                overflow: "hidden",
-              }}
-            />
-          ))}
+        {/* Masonry Grid */}
+        <Box
+          ref={containerRef}
+          sx={{
+            display: "grid",
+            gridTemplateColumns: { xs: "1fr", md: "repeat(4, 1fr)" },
+            gridAutoRows: "200px",
+            gap: { xs: 1.5, md: 2 },
+            gridAutoFlow: "dense",
+            mb: { xs: 3, md: 4 },
+          }}
+        >
+          {currentImages.map((image, index) => {
+            const span = getGridSpan(index);
+            return (
+              <Box
+                key={image.id}
+                ref={(el: HTMLDivElement | null) => {
+                  if (el) itemRefs.current.set(image.id, el);
+                }}
+                onClick={() => lightbox.openLightbox(image.id, image.src)}
+                sx={{
+                  gridColumn: { xs: "span 1", md: `span ${span.colSpan}` },
+                  gridRow: { xs: "span 1", md: `span ${span.rowSpan}` },
+                  position: "relative",
+                  backgroundColor: "#d0d0d0",
+                  borderRadius: "4px",
+                  backgroundImage: `url(${image.src})`,
+                  backgroundSize: "cover",
+                  backgroundPosition: "center",
+                  cursor: "pointer",
+                  transition: "all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94)",
+                  opacity: 0,
+                  transform: "translateY(30px) scale(0.95)",
+                  "&:hover": {
+                    transform: "scale(1.05) translateY(-5px)",
+                    boxShadow: "0 20px 40px rgba(0,0,0,0.15)",
+                  },
+                  overflow: "hidden",
+                  willChange: "transform, opacity",
+                }}
+              />
+            );
+          })}
         </Box>
 
+        {/* Pagination */}
         {totalPages > 1 && (
-          <Box sx={{ display: "flex", justifyContent: "center", alignItems: "center", gap: { xs: 2, md: 4 }, mt: { xs: 2, md: 3 }, p: { xs: 1.5, md: 0 } }}>
+          <Box
+            sx={{
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+              gap: { xs: 2, md: 4 },
+              mt: { xs: 2, md: 3 },
+              p: { xs: 1.5, md: 0 },
+              mb: { xs: 3, md: 6 },
+            }}
+          >
             <button
               onClick={handlePrev}
               style={{
@@ -125,7 +212,15 @@ export default function SliderImageGridLayout({
               ←
             </button>
 
-            <p style={{ fontSize: "clamp(0.8rem, 2.5vw, 1.1rem)", color: "#2a2a2a", margin: 0, fontWeight: 600, letterSpacing: "2px" }}>
+            <p
+              style={{
+                fontSize: "clamp(0.8rem, 2.5vw, 1.1rem)",
+                color: "#2a2a2a",
+                margin: 0,
+                fontWeight: 600,
+                letterSpacing: "2px",
+              }}
+            >
               {currentPage + 1} / {totalPages}
             </p>
 
@@ -170,7 +265,7 @@ export default function SliderImageGridLayout({
         MAX_ZOOM={lightbox.MAX_ZOOM}
         MIN_ZOOM={lightbox.MIN_ZOOM}
       />
-    
+
       <ScrollToTopButton />
     </div>
   );
