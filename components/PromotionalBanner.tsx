@@ -2,6 +2,7 @@
 
 import { Box } from '@mui/material';
 import Link from 'next/link';
+import Image from 'next/image';
 
 interface PromotionalBannerProps {
   title: string;
@@ -81,17 +82,17 @@ export default function PromotionalBanner({
             alignItems: 'center',
             justifyContent: 'center',
             backgroundColor: '#0a0a0a',
+            position: 'relative',
           }}
         >
-          <img
+          <Image
             src={imageUrl}
             alt={title}
+            fill
             style={{
-              width: '100%',
-              height: '100%',
               objectFit: 'cover',
-              transition: 'transform 0.4s ease',
             }}
+            sizes="(max-width: 768px) 100vw, 50vw"
           />
         </Box>
       </Box>
