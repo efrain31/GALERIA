@@ -1,11 +1,11 @@
-import SliderImageGridLayout from "@/components/layouts/SliderImageGridLayout";
+import FilterableGalleryLayout from "@/components/layouts/FilterableGalleryLayout";
 import { categories, fullHavenHellImagesData } from "@/lib/data";
 
 export default function FullHavenHellPage() {
   const havenHellCategory = categories[7] as any;
 
   return (
-    <SliderImageGridLayout
+    <FilterableGalleryLayout
       categoria="full-haven-hell"
       title={havenHellCategory.title}
       description={havenHellCategory.description}

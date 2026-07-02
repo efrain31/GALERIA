@@ -1,6 +1,7 @@
 "use client";
 
 import { ReactNode, useEffect } from "react";
+import FloatingMenu from "@/components/FloatingMenu";
 
 export default function RootLayoutClient({
   children,
@@ -23,5 +24,10 @@ export default function RootLayoutClient({
     };
   }, []);
 
-  return <>{children}</>;
+  return (
+    <>
+      {children}
+      <FloatingMenu />
+    </>
+  );
 }
