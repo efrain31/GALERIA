@@ -12,6 +12,7 @@ import { useState } from "react";
 interface SliderTwoColumnLayoutProps {
   categoria: string;
   title: string;
+  number: string;
   tagline: string;
   description: string;
   images: ImageData[];
@@ -23,6 +24,7 @@ interface SliderTwoColumnLayoutProps {
 export default function SliderTwoColumnLayout({
   categoria,
   title,
+  number,
   tagline,
   description,
   images,
@@ -68,31 +70,31 @@ export default function SliderTwoColumnLayout({
         >
           {/* Left Column - Title and Description */}
           <Box sx={{ pr: { xs: 0, md: 2 } }}>
-            <h2
+            <h1
               style={{
-                fontSize: "clamp(0.7rem, 2.5vw, 0.85rem)",
+                fontSize: "clamp(2rem, 8vw, 4rem)",
                 letterSpacing: "2px",
                 color: "#ff0000",
-                margin: "0 0 clamp(1rem, 4vw, 2rem) 0",
-                fontWeight: 700,
+                margin: "0 0 0.5rem 0",
+                fontWeight: 900,
+              }}
+            >
+              {number}
+            </h1>
+
+            <h2
+              style={{
+                fontSize: "clamp(2.5rem, 12vw, 5rem)",
+                letterSpacing: "2px",
+                color: "#ff0000",
+                margin: "0 0 clamp(1.5rem, 3vw, 2rem) 0",
+                fontWeight: 900,
                 textTransform: "uppercase",
+                lineHeight: 0.9,
               }}
             >
               {displayTitle}
             </h2>
-
-            <h1
-              style={{
-                fontSize: "clamp(2rem, 8vw, 4rem)",
-                color: "#ff0000",
-                margin: "0 0 clamp(1rem, 4vw, 2rem) 0",
-                fontWeight: 900,
-                letterSpacing: "-1.5px",
-                lineHeight: 1.1,
-              }}
-            >
-              {displayTagline}
-            </h1>
 
             <p
               style={{

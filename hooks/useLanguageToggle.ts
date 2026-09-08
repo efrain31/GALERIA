@@ -14,9 +14,10 @@ export const useLanguageToggle = () => {
   return isJapanese;
 };
 
+// Translation keys and their corresponding translations
 export const translations: Record<string, { en: string; ja: string }> = {
   portraitTitle: {
-    en: "PORTRAIT PHOTOGRAPHY",
+    en: "ONI-OOH PHOTOGRAPHY",
     ja: "ポートレート写真",
   },
   portraitTagline: {
@@ -24,27 +25,27 @@ export const translations: Record<string, { en: string; ja: string }> = {
     ja: "不完全さの美しさ",
   },
   commercialTitle: {
-    en: "COMMERCIAL PHOTOGRAPHY",
+    en: "THE MAURICE",
     ja: "商業写真",
   },
   eventTitle: {
-    en: "EVENT PHOTOGRAPHY",
+    en: "EL LUGAR DONDE NOS CONOCIMOS",
     ja: "イベント写真",
   },
   fashionTitle: {
-    en: "FASHION PHOTOGRAPHY",
+    en: "LAS HERMANAS DEL DESTINO - LAQUESIS",
     ja: "ファッション写真",
   },
   editorialTitle: {
-    en: "EDITORIAL PHOTOGRAPHY",
+    en: "JESUS CORRIENDO A LOS COMERCIANTES DE TU TEMPLO",
     ja: "編集写真",
   },
   landscapeTitle: {
-    en: "LANDSCAPE PHOTOGRAPHY",
+    en: "LAS HERMANAS DEL DESTINO - CLOTO",
     ja: "風景写真",
   },
   shotHeartsTitle: {
-    en: "SHOT HEARTS",
+    en: "PHOTOGRAPHY OF SHOT HEARTS",
     ja: "ショットハーツ",
   },
   galleryTitle: {

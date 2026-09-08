@@ -8,6 +8,7 @@ export default function PortraitPage() {
     <SliderTwoColumnLayout
       categoria="portrait"
       title={portraitCategory.title}
+      number={portraitCategory.id}
       tagline={portraitCategory.tagline}
       description={portraitCategory.description}
       images={portraitImagesData}

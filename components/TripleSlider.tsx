@@ -1,7 +1,6 @@
 'use client';
 
 import { Box, Container } from '@mui/material';
-import Image from 'next/image';
 import { useEffect, useState } from 'react';
 import { keyframes } from '@emotion/react';
 import { useLanguageToggle, translations } from '@/hooks/useLanguageToggle';
@@ -92,16 +91,16 @@ export default function TripleSlider({
           onMouseEnter={() => setIsAutoPlay(false)}
           onMouseLeave={() => setIsAutoPlay(true)}
         >
-          <Image
+          <img
             src={currentImage.src}
             alt={currentImage.alt || 'Gallery image'}
-            fill
-            sizes="(max-width: 768px) 100vw, 33vw"
             style={{
               objectFit: 'cover',
               position: 'absolute',
               top: 0,
               left: 0,
+              width: '100%',
+              height: '100%',
               transition: 'opacity 0.6s ease-in-out',
             }}
           />

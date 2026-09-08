@@ -51,9 +51,9 @@ export default function Galeria() {
                   <Box sx={{ display: "flex", gap: 2, alignItems: "flex-start", mb: 1 }}>
                     <h2
                       style={{
-                        fontSize: "2rem",
+                        fontSize: "clamp(2rem, 8vw, 4rem)",
                         fontWeight: 900,
-                        color: "#2a2a2a",
+                        color: "#ff0000",
                         margin: 0,
                       }}
                     >
@@ -62,9 +62,9 @@ export default function Galeria() {
                     <Box>
                       <h3
                         style={{
-                          fontSize: "0.85rem",
+                          fontSize: "clamp(0.85rem, 3vw, 1.5rem)",
                           fontWeight: 700,
-                          color: "#2a2a2a",
+                          color: "#ff0000",
                           margin: 0,
                           letterSpacing: "1px",
                           textTransform: "uppercase",
@@ -123,9 +123,9 @@ export default function Galeria() {
                   <Box sx={{ display: "flex", gap: 2, alignItems: "flex-start", mb: 1 }}>
                     <h2
                       style={{
-                        fontSize: "2rem",
+                        fontSize: "clamp(2rem, 8vw, 4rem)",
                         fontWeight: 900,
-                        color: "#2a2a2a",
+                        color: "#ff0000",
                         margin: 0,
                       }}
                     >
@@ -134,9 +134,9 @@ export default function Galeria() {
                     <Box>
                       <h3
                         style={{
-                          fontSize: "0.85rem",
+                          fontSize: "clamp(0.85rem, 3vw, 1.5rem)",
                           fontWeight: 700,
-                          color: "#2a2a2a",
+                          color: "#ff0000",
                           margin: 0,
                           letterSpacing: "1px",
                           textTransform: "uppercase",
@@ -224,9 +224,9 @@ export default function Galeria() {
                   <Box sx={{ display: "flex", gap: 2, alignItems: "flex-start" }}>
                     <h3
                       style={{
-                        fontSize: "1.5rem",
+                        fontSize: "clamp(1.5rem, 5vw, 3rem)",
                         fontWeight: 900,
-                        color: "#2a2a2a",
+                        color: "#ff0000",
                         margin: 0,
                       }}
                     >
@@ -235,9 +235,9 @@ export default function Galeria() {
                     <Box>
                       <h4
                         style={{
-                          fontSize: "0.8rem",
+                          fontSize: "clamp(0.8rem, 2.5vw, 1.2rem)",
                           fontWeight: 700,
-                          color: "#2a2a2a",
+                          color: "#ff0000",
                           margin: 0,
                           letterSpacing: "0.5px",
                           textTransform: "uppercase",
@@ -273,13 +273,14 @@ export default function Galeria() {
             >
               <p
                 style={{
-                  fontSize: "0.9rem",
+                  fontSize: "3.5rem",
                   color: "#ff0000",
                   fontWeight: 600,
                   letterSpacing: "1px",
                   margin: 0,
-                  paddingBottom: "0.5rem",
-                  borderBottom: "2px solid #ff0000",
+                  paddingBottom: "1.5rem",
+                  borderBottom: "5px solid #ff0000",
+                  lineHeight: 1.2,
                 }}
               >
                 {workWithMeText}
@@ -292,11 +293,11 @@ export default function Galeria() {
       {/* Promotional Banner */}
       <Box sx={{ mt: { xs: 6, md: 8 }, mb: { xs: 6, md: 8 } }}>
         <PromotionalBanner
-          title={isJapanese ? "ポートレート写真" : "PORTRAIT PHOTOGRAPHY"}
+          title={isJapanese ? "ポートレート写真" : "ONI-OOH PHOTOGRAPHY"}
           description={isJapanese
             ? "親密で表現力豊かなポートレートを通じて個人の本質と人格をキャプチャします。"
             : "Capturing the essence and personality of individuals through intimate and expressive portraits."}
-          imageUrl="/images/galeria/2.png"
+          imageUrl="/images/galeria/16.webp"
           linkHref="/galeria/portrait"
         />
       </Box>
@@ -321,10 +322,10 @@ export default function Galeria() {
         </Box>
       </Box>
 
-      {/* Categories 07-08 List - Between Main Banner and Parallel Banners */}
+      {/* Categories 07-09 List - Between Main Banner and Parallel Banners */}
       <Container maxWidth="lg">
         <Box sx={{ mt: { xs: 4, md: 6 }, mb: { xs: 8, md: 12 } }}>
-          {categories.slice(6, 8).map((category) => (
+          {categories.slice(6, 9).map((category) => (
             <Link key={category.id} href={category.href} style={{ textDecoration: "none" }}>
               <Box
                 sx={{
@@ -341,9 +342,9 @@ export default function Galeria() {
                 <Box sx={{ display: "flex", gap: 2, alignItems: "flex-start" }}>
                   <h3
                     style={{
-                      fontSize: "clamp(1.2rem, 3vw, 1.5rem)",
+                      fontSize: "clamp(1.2rem, 5vw, 3rem)",
                       fontWeight: 900,
-                      color: "#2a2a2a",
+                      color: "#ff0000",
                       margin: 0,
                     }}
                   >
@@ -352,9 +353,9 @@ export default function Galeria() {
                   <Box>
                     <h4
                       style={{
-                        fontSize: "clamp(0.7rem, 2.5vw, 0.8rem)",
+                        fontSize: "clamp(0.7rem, 2.5vw, 1.2rem)",
                         fontWeight: 700,
-                        color: "#2a2a2a",
+                        color: "#ff0000",
                         margin: 0,
                         letterSpacing: "0.5px",
                         textTransform: "uppercase",
@@ -395,7 +396,7 @@ export default function Galeria() {
           description={isJapanese
             ? "感情的なポートレートを通じて生の感情と親密な瞬間をキャプチャします。"
             : "Capturing raw emotions and intimate moments through striking portraiture."}
-          imageUrl="/images/galeria/2.png"
+          imageUrl="/images/galeria/9.png"
           linkHref="/galeria/shot-hearts"
         />
 
@@ -405,7 +406,7 @@ export default function Galeria() {
           description={isJapanese
             ? "光と影の対比、美と混乱の二面性を探る写真作品。"
             : "Exploring the contrast between light and shadow, beauty and chaos."}
-          imageUrl="/images/galeria/2.png"
+          imageUrl="/images/galeria/11.png"
           linkHref="/galeria/full-haven-hell"
         />
       </Box>

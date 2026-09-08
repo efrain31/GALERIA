@@ -16,7 +16,7 @@ export interface CategoryData {
 export const galleryCategories: Record<string, CategoryData> = {
   portrait: {
     id: '01',
-    title: 'PORTRAIT PHOTOGRAPHY',
+    title: 'ONI-OOH PHOTOGRAPHY',
     description: 'Capturing the essence and emotion of individuals through portraiture',
     images: [
       {
@@ -47,7 +47,7 @@ export const galleryCategories: Record<string, CategoryData> = {
   },
   commercial: {
     id: '02',
-    title: 'COMMERCIAL PHOTOGRAPHY',
+    title: 'THE MAURICE',
     description: 'Professional commercial and product photography',
     images: [
       {
@@ -72,7 +72,7 @@ export const galleryCategories: Record<string, CategoryData> = {
   },
   landscape: {
     id: '03',
-    title: 'LANDSCAPE PHOTOGRAPHY',
+    title: 'LAS HERMANAS DEL DESTINO - CLOTO',
     description: 'Stunning landscape and nature photography',
     images: [
       {
@@ -97,7 +97,7 @@ export const galleryCategories: Record<string, CategoryData> = {
   },
   event: {
     id: '04',
-    title: 'EVENT PHOTOGRAPHY',
+    title: 'EL LUGAR DONDE NOS CONOCIMOS',
     description: 'Capturing moments from events and celebrations',
     images: [
       {
@@ -122,7 +122,7 @@ export const galleryCategories: Record<string, CategoryData> = {
   },
   fashion: {
     id: '05',
-    title: 'FASHION PHOTOGRAPHY',
+    title: 'LAS HERMANAS DEL DESTINO - LAQUESIS',
     description: 'High-fashion and style photography',
     images: [
       {
@@ -147,7 +147,7 @@ export const galleryCategories: Record<string, CategoryData> = {
   },
   editorial: {
     id: '06',
-    title: 'EDITORIAL PHOTOGRAPHY',
+    title: 'JESUS CORRIENDO A LOS COMERCIANTES DE TU TEMPLO',
     description: 'Editorial and creative storytelling photography',
     images: [
       {

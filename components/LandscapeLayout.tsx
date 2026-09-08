@@ -102,15 +102,16 @@ export default function LandscapeLayout({ id, title, description }: LandscapeLay
               <Box sx={{ display: "inline-block" }}>
                 <p
                   style={{
-                    fontSize: "0.9rem",
+                    fontSize: "3.5rem",
                     color: "#ff0000",
                     textDecoration: "none",
-                    borderBottom: "2px solid #ff0000",
+                    borderBottom: "5px solid #ff0000",
                     fontWeight: 600,
                     letterSpacing: "1px",
                     margin: 0,
-                    paddingBottom: "0.5rem",
+                    paddingBottom: "1.5rem",
                     cursor: "pointer",
+                    lineHeight: 1.2,
                   }}
                 >
                   {workWithMeText}

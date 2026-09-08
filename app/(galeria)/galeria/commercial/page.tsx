@@ -8,6 +8,7 @@ export default function CommercialPage() {
     <SliderCompactLayout
       categoria="commercial"
       title={commercialCategory.title}
+      number={commercialCategory.id}
       description={commercialCategory.description}
       images={commercialImagesData}
       totalImages={commercialCategory.totalImages}

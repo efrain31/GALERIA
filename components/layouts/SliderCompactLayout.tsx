@@ -12,6 +12,7 @@ import { useState } from "react";
 interface SliderCompactLayoutProps {
   categoria: string;
   title: string;
+  number: string;
   description: string;
   images: ImageData[];
   totalImages?: number;
@@ -21,6 +22,7 @@ interface SliderCompactLayoutProps {
 export default function SliderCompactLayout({
   categoria,
   title,
+  number,
   description,
   images,
   totalImages = 8,
@@ -52,23 +54,28 @@ export default function SliderCompactLayout({
           <BackArrow href="/galeria" text="_ VOLVER _" />
         </Box>
 
-        <Box
-          sx={{
-            display: "grid",
-            gridTemplateColumns: { xs: "1fr", md: "1fr 1.5fr" },
-            gap: { xs: 2, md: 4 },
-            mb: { xs: 4, md: 8 },
-          }}
-        >
-          <h2
+        <Box sx={{ mb: { xs: 8, md: 12 }, p: { xs: 1.5, md: 0 } }}>
+          <h1
             style={{
-              fontSize: "clamp(0.7rem, 3vw, 0.85rem)",
+              fontSize: "clamp(2rem, 8vw, 4rem)",
               letterSpacing: "2px",
               color: "#ff0000",
-              margin: 0,
-              fontWeight: 700,
+              margin: "0 0 0.5rem 0",
+              fontWeight: 900,
+            }}
+          >
+            {number}
+          </h1>
+
+          <h2
+            style={{
+              fontSize: "clamp(2.5rem, 12vw, 5rem)",
+              letterSpacing: "2px",
+              color: "#ff0000",
+              margin: "0 0 clamp(1.5rem, 3vw, 2rem) 0",
+              fontWeight: 900,
               textTransform: "uppercase",
-              lineHeight: 1.4,
+              lineHeight: 0.9,
             }}
           >
             {displayTitle}

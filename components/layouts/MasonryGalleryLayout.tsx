@@ -110,14 +110,27 @@ export default function MasonryGalleryLayout({
         </Box>
 
         <Box sx={{ mb: { xs: 8, md: 12 }, p: { xs: 1.5, md: 0 } }}>
-          <h2
+          <h1
             style={{
-              fontSize: "clamp(0.7rem, 2.5vw, 0.85rem)",
+              fontSize: "clamp(2rem, 8vw, 4rem)",
               letterSpacing: "2px",
               color: "#ff0000",
-              margin: "0 0 clamp(0.7rem, 2.5vw, 1rem) 0",
-              fontWeight: 700,
+              margin: "0 0 0.5rem 0",
+              fontWeight: 900,
+            }}
+          >
+            {number}
+          </h1>
+
+          <h2
+            style={{
+              fontSize: "clamp(2.5rem, 12vw, 5rem)",
+              letterSpacing: "2px",
+              color: "#ff0000",
+              margin: "0 0 clamp(1.5rem, 3vw, 2rem) 0",
+              fontWeight: 900,
               textTransform: "uppercase",
+              lineHeight: 0.9,
             }}
           >
             {displayTitle}
