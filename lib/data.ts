@@ -266,7 +266,7 @@ export const categories: CategoryData[] = [
     titleKey: "perroTitle",
     tagline: "PET PHOTOGRAPHY",
     taglineKey: "perroTagline",
-    description: "Capturing the playful spirit and unique personality of our beloved companions.",
+    description: "Capturin the playful spirit and unique personality of our beloved companions.",
     descriptionKey: "perroDescription",
     href: "/galeria/perro",
     images: perroImagesData,

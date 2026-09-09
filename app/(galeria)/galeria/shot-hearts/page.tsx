@@ -16,7 +16,7 @@ export default function ShotHeartsPage() {
       videoSrc="/images/splash/videohome.mp4"
       aboutTitle="ABOUT"
       aboutDescription="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-      aboutImage="/images/splash/2.png"
+      aboutImage="/images/galeria/oni.jpg"
       aboutQuotes={[
         { text: "Making noise in world of rock.", author: "KEXP" },
         { text: "Artist to know.", author: "BILLBOARD" },
