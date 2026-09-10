@@ -118,11 +118,11 @@ export default function FloatingMenu() {
               },
               '20%': {
                 opacity: 1,
-                transform: 'translateY(-120px) scale(1)',
+                transform: 'translateY(-70px) scale(1)',
               },
               '80%': {
                 opacity: 1,
-                transform: 'translateY(-120px) scale(1)',
+                transform: 'translateY(-70px) scale(1)',
               },
               '100%': {
                 opacity: 0,
