@@ -133,14 +133,14 @@ export default function FloatingMenu() {
         >
           <Box
             sx={{
-              backgroundColor: '#3a3a3a',
+              backgroundColor: '#ff0000',
               color: '#fff',
               padding: '8px 16px',
               borderRadius: '0',
               fontSize: '0.85rem',
               fontWeight: 600,
               whiteSpace: 'nowrap',
-              boxShadow: '0 4px 12px rgba(0,0,0,0.3)',
+              boxShadow: '0 4px 12px rgba(255,0,0,0.3)',
             }}
           >
             MENU DE NAVEGACION
