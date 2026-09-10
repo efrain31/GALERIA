@@ -178,62 +178,61 @@ export default function NoemiLayout({
           <Box
             sx={{
               display: "flex",
-              justifyContent: "space-between",
+              justifyContent: "center",
               alignItems: "center",
-              mb: { xs: 4, md: 8 },
-              px: { xs: 2, md: 0 },
+              gap: { xs: 2, md: 4 },
+              mt: { xs: 4, md: 0 },
             }}
           >
+            {/* Previous Button */}
             <button
               onClick={handlePrev}
               style={{
-                backgroundColor: "transparent",
-                border: "2px solid #ff0000",
+                background: "none",
+                border: "none",
+                fontSize: "clamp(1.5rem, 5vw, 2rem)",
                 color: "#ff0000",
-                padding: "0.75rem 1.5rem",
-                fontSize: "0.95rem",
-                fontWeight: 600,
                 cursor: "pointer",
-                transition: "all 0.3s ease",
+                fontWeight: "bold",
+                padding: "0.5rem 1rem",
+                transition: "transform 0.2s",
               }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.backgroundColor = "#ff0000";
-                e.currentTarget.style.color = "#fff";
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.backgroundColor = "transparent";
-                e.currentTarget.style.color = "#ff0000";
-              }}
+              onMouseEnter={(e) => (e.currentTarget.style.transform = "scale(1.2)")}
+              onMouseLeave={(e) => (e.currentTarget.style.transform = "scale(1)")}
             >
-              ← PREV
+              ←
             </button>
 
-            <span style={{ color: "#2a2a2a", fontSize: "0.9rem", fontWeight: 600 }}>
+            {/* Page Indicator */}
+            <p
+              style={{
+                fontSize: "clamp(0.9rem, 3vw, 1.1rem)",
+                color: "#2a2a2a",
+                margin: 0,
+                fontWeight: 600,
+                letterSpacing: "2px",
+              }}
+            >
               {currentPage + 1} / {totalPages}
-            </span>
+            </p>
 
+            {/* Next Button */}
             <button
               onClick={handleNext}
               style={{
-                backgroundColor: "transparent",
-                border: "2px solid #ff0000",
+                background: "none",
+                border: "none",
+                fontSize: "clamp(1.5rem, 5vw, 2rem)",
                 color: "#ff0000",
-                padding: "0.75rem 1.5rem",
-                fontSize: "0.95rem",
-                fontWeight: 600,
                 cursor: "pointer",
-                transition: "all 0.3s ease",
+                fontWeight: "bold",
+                padding: "0.5rem 1rem",
+                transition: "transform 0.2s",
               }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.backgroundColor = "#ff0000";
-                e.currentTarget.style.color = "#fff";
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.backgroundColor = "transparent";
-                e.currentTarget.style.color = "#ff0000";
-              }}
+              onMouseEnter={(e) => (e.currentTarget.style.transform = "scale(1.2)")}
+              onMouseLeave={(e) => (e.currentTarget.style.transform = "scale(1)")}
             >
-              NEXT →
+              →
             </button>
           </Box>
         )}
