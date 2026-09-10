@@ -1,11 +1,11 @@
-import SliderCompactLayout from "@/components/layouts/SliderCompactLayout";
+import NoemiLayout from "@/components/layouts/NoemiLayout";
 import { categories, noemiImagesData } from "@/lib/data";
 
 export default function NoemiPage() {
-  const noemiCategory = categories[9];
+  const noemiCategory = categories[9]; // Categoría 10 - Le vie en rose
 
   return (
-    <SliderCompactLayout
+    <NoemiLayout
       categoria="noemi"
       title={noemiCategory.title}
       number={noemiCategory.id}

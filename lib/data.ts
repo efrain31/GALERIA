@@ -342,7 +342,7 @@ export const categories: CategoryData[] = [
     descriptionKey: "noemiDescription",
     corriente: "Impresionismo y realismo",
     tecnica: "Pinceladas suaves y detalladas, capturando la esencia de la vida cotidiana.",
-    materiales: "Oleo,acrilico y vinilico sobre manta de algodon, ",
+    materiales: "Oleo,acrilico y vinilico sobre manta de algodon.",
     href: "/galeria/noemi",
     images: noemiImagesData,
     totalImages: noemiImagesData.length,
