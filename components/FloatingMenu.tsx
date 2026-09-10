@@ -3,6 +3,7 @@
 import { Box } from '@mui/material';
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import HomeIcon from '@mui/icons-material/Home';
 import MenuIcon from '@mui/icons-material/Menu';
 import StarIcon from '@mui/icons-material/Star';
@@ -27,6 +28,7 @@ const menuItems: MenuItem[] = [
 export default function FloatingMenu() {
   const [isOpen, setIsOpen] = useState(false);
   const [showMessage, setShowMessage] = useState(false);
+  const pathname = usePathname();
 
   useEffect(() => {
     setShowMessage(true);
@@ -34,7 +36,7 @@ export default function FloatingMenu() {
       setShowMessage(false);
     }, 3000);
     return () => clearTimeout(timer);
-  }, []);
+  }, [pathname]);
 
   return (
     <Box
