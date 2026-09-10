@@ -243,7 +243,25 @@ export default function NoemiLayout({
         </Box>
       </Container>
 
-      <LightboxModal lightbox={lightbox} />
+      <LightboxModal
+        isOpen={lightbox.lightboxOpen}
+        imageUrl={lightbox.imageSrc || ""}
+        imageAlt={`Imagen ${lightbox.selectedImage}`}
+        zoom={lightbox.zoom}
+        pan={lightbox.pan}
+        isDragging={lightbox.isDragging}
+        containerRef={lightbox.containerRef}
+        imageRef={lightbox.imageRef}
+        onClose={lightbox.closeLightbox}
+        onZoomIn={lightbox.zoomIn}
+        onZoomOut={lightbox.zoomOut}
+        onReset={lightbox.resetZoom}
+        onPan={lightbox.setPan}
+        onDragStart={lightbox.startDrag}
+        onDragEnd={lightbox.endDrag}
+        MAX_ZOOM={lightbox.MAX_ZOOM}
+        MIN_ZOOM={lightbox.MIN_ZOOM}
+      />
     </div>
   );
 }
