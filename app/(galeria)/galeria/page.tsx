@@ -430,7 +430,7 @@ export default function Galeria() {
                       position: "relative",
                       backgroundColor: "#d0d0d0",
                       borderRadius: "4px",
-                      backgroundImage: `url(/images/galeria/${category.href.split("/").pop()}/1.png)`,
+                      backgroundImage: `url(/images/galeria/${category.href.split("/").pop()}/${category.href.includes("perro") ? "16.jwebp" : "n1.jpeg"})`,
                       backgroundSize: "cover",
                       backgroundPosition: "center",
                     }}
@@ -442,7 +442,7 @@ export default function Galeria() {
                       position: "relative",
                       backgroundColor: "#d0d0d0",
                       borderRadius: "4px",
-                      backgroundImage: `url(/images/galeria/${category.href.split("/").pop()}/2.png)`,
+                      backgroundImage: `url(/images/galeria/${category.href.split("/").pop()}/${category.href.includes("perro") ? "17.jwebp" : "n2.jpeg"})`,
                       backgroundSize: "cover",
                       backgroundPosition: "center",
                     }}
