@@ -190,8 +190,8 @@ export const fullHavenHellImagesData: ImageData[] = [
   { id: "all-15", src: "/images/galeria/oni/oni2.jpg", alt: "All Categories 15 - Full Heaven/Hell" },
   { id: "all-16", src: "/images/galeria/iglesia/iglesia6.jpg", alt: "All Categories 16 - Full Heaven/Hell" },
   // 09 - PERRO
-  { id: "all-17", src: "/images/galeria/perro/perro3.jpg", alt: "All Categories 17 - Perro" },
-  { id: "all-18", src: "/images/galeria/perro/perro4.jpg", alt: "All Categories 18 - Perro" },
+  { id: "all-17", src: "/images/galeria/noemi/n1.jpeg", alt: "All Categories 17 - Noemi" },
+  { id: "all-18", src: "/images/galeria/noemi/n5.jpeg", alt: "All Categories 18 - Noemi" },
 ];
 
 
