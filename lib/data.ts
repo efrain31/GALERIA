@@ -154,7 +154,13 @@ export const perroImagesData: ImageData[] = [
 
 // Noemi Gallery
 export const noemiImagesData: ImageData[] = [
-  // Las imágenes se agregarán manualmente
+  { id: "noemi-1", src: "/images/galeria/noemi/n1.jpeg", alt: "NOEMI photograph 1" },
+  { id: "noemi-2", src: "/images/galeria/noemi/n2.jpeg", alt: "NOEMI photograph 2" },
+  { id: "noemi-3", src: "/images/galeria/noemi/n3.jpeg", alt: "NOEMI photograph 3" },
+  { id: "noemi-4", src: "/images/galeria/noemi/n4.jpeg", alt: "NOEMI photograph 4" },
+  { id: "noemi-5", src: "/images/galeria/noemi/n5.jpeg", alt: "NOEMI photograph 5" },
+  { id: "noemi-6", src: "/images/galeria/noemi/n6.jpeg", alt: "NOEMI photograph 6" },
+  { id: "noemi-7", src: "/images/galeria/noemi/n7.jpeg", alt: "NOEMI photograph 7" },
 ];
 
 // Full Heaven/Hell Gallery - Mixed Collection (Original)
