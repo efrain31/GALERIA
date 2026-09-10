@@ -255,10 +255,11 @@ export default function NoemiLayout({
         onClose={lightbox.closeLightbox}
         onZoomIn={lightbox.zoomIn}
         onZoomOut={lightbox.zoomOut}
-        onReset={lightbox.resetZoom}
-        onPan={lightbox.setPan}
-        onDragStart={lightbox.startDrag}
-        onDragEnd={lightbox.endDrag}
+        onReset={lightbox.resetView}
+        onMouseDown={lightbox.handleMouseDown}
+        onMouseMove={lightbox.handleMouseMove}
+        onMouseUp={lightbox.handleMouseUp}
+        onMouseLeave={lightbox.handleMouseUp}
         MAX_ZOOM={lightbox.MAX_ZOOM}
         MIN_ZOOM={lightbox.MIN_ZOOM}
       />
