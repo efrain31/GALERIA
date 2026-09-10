@@ -134,7 +134,7 @@ export default function FloatingMenu() {
           <Box
             sx={{
               backgroundColor: '#3a3a3a',
-              color: '#ff0000',
+              color: '#fff',
               padding: '8px 16px',
               borderRadius: '0',
               fontSize: '0.85rem',
