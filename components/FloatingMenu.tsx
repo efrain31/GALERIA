@@ -136,14 +136,14 @@ export default function FloatingMenu() {
               backgroundColor: '#ff0000',
               color: '#fff',
               padding: '8px 16px',
-              borderRadius: '20px',
+              borderRadius: '0',
               fontSize: '0.85rem',
               fontWeight: 600,
               whiteSpace: 'nowrap',
               boxShadow: '0 4px 12px rgba(255,0,0,0.3)',
             }}
           >
-            menu de navegacion
+            MENU DE NAVEGACION
           </Box>
         </Box>
       )}
