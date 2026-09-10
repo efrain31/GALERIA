@@ -1,7 +1,7 @@
 'use client';
 
 import { Box } from '@mui/material';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import HomeIcon from '@mui/icons-material/Home';
 import MenuIcon from '@mui/icons-material/Menu';
@@ -26,6 +26,15 @@ const menuItems: MenuItem[] = [
 
 export default function FloatingMenu() {
   const [isOpen, setIsOpen] = useState(false);
+  const [showMessage, setShowMessage] = useState(false);
+
+  useEffect(() => {
+    setShowMessage(true);
+    const timer = setTimeout(() => {
+      setShowMessage(false);
+    }, 3000);
+    return () => clearTimeout(timer);
+  }, []);
 
   return (
     <Box
@@ -89,6 +98,51 @@ export default function FloatingMenu() {
               </Box>
             </Link>
           ))}
+        </Box>
+      )}
+
+      {/* Message Animation */}
+      {showMessage && (
+        <Box
+          sx={{
+            position: 'absolute',
+            bottom: 30,
+            left: 0,
+            animation: 'messagePulse 3s ease-in-out',
+            '@keyframes messagePulse': {
+              '0%': {
+                opacity: 0,
+                transform: 'translateY(0) scale(0.8)',
+              },
+              '20%': {
+                opacity: 1,
+                transform: 'translateY(-120px) scale(1)',
+              },
+              '80%': {
+                opacity: 1,
+                transform: 'translateY(-120px) scale(1)',
+              },
+              '100%': {
+                opacity: 0,
+                transform: 'translateY(0) scale(0.8)',
+              },
+            },
+          }}
+        >
+          <Box
+            sx={{
+              backgroundColor: '#ff0000',
+              color: '#fff',
+              padding: '8px 16px',
+              borderRadius: '20px',
+              fontSize: '0.85rem',
+              fontWeight: 600,
+              whiteSpace: 'nowrap',
+              boxShadow: '0 4px 12px rgba(255,0,0,0.3)',
+            }}
+          >
+            menu de navegacion
+          </Box>
         </Box>
       )}
 
