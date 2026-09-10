@@ -11,7 +11,7 @@ export default function Galeria() {
   const isJapanese = useLanguageToggle();
   const tableOfText = isJapanese ? mainPageConfig.tableOfLabelJa : mainPageConfig.tableOfLabel;
   const contentsText = isJapanese ? mainPageConfig.contentsLabelJa : mainPageConfig.contentsLabel;
-  const workWithMeText = isJapanese ? "ä¸€ç·’ã«åƒãã¾ã—ã‚‡ã† â†’" : mainPageConfig.workWithMeLink;
+  const workWithMeText = isJapanese ? "一緒に働きましょう →" : mainPageConfig.workWithMeLink;
 
   return (
     <div suppressHydrationWarning style={{ backgroundColor: mainPageConfig.backgroundColor, minHeight: "100vh", padding: "2.5rem 0" }}>
@@ -293,7 +293,7 @@ export default function Galeria() {
       {/* Promotional Banner */}
       <Box sx={{ mt: { xs: 6, md: 8 }, mb: { xs: 6, md: 8 } }}>
         <PromotionalBanner
-          title={isJapanese ? "ãƒãƒ¼ãƒˆãƒ¬ãƒ¼ãƒˆå†™çœŸ" : "ONI-OOH PHOTOGRAPHY"}
+          title={isJapanese ? "ポートレート写真" : "ONI-OOH PHOTOGRAPHY"}
           description={isJapanese
             ? "è¦ªå¯†ã§è¡¨ç¾åŠ›è±Šã‹ãªãƒãƒ¼ãƒˆãƒ¬ãƒ¼ãƒˆã‚’é€šã˜ã¦å€‹äººã®æœ¬è³ªã¨äººæ ¼ã‚’ã‚­ãƒ£ãƒ—ãƒãƒ£ã—ã¾ã™ã€‚"
             : "Capturing the essence and personality of individuals through intimate and expressive portraits."}
@@ -316,7 +316,7 @@ export default function Galeria() {
               textAlign: "right",
             }}
           >
-            {isJapanese ? "( ãƒ•ãƒ«ãƒã‚¦ã‚¹ )" : "( FULL HOUSE )"}
+            {isJapanese ? "( フルハウス )" : "( FULL HOUSE )"}
           </h2>
           <Box sx={{ width: "100%", borderBottom: "2px solid #2a2a2a" }} />
         </Box>
@@ -334,7 +334,7 @@ export default function Galeria() {
       >
         {/* Shot Hearts Banner */}
         <PromotionalBanner
-          title={isJapanese ? "ã‚·ãƒ§ãƒƒãƒˆãƒ»ãƒãƒ¼ãƒ„" : "SHOT GALERRY"}
+          title={isJapanese ? "ショット・ハート" : "SHOT GALERRY"}
           description={isJapanese
             ? "æ„Ÿæƒ…çš„ãªãƒãƒ¼ãƒˆãƒ¬ãƒ¼ãƒˆã‚’é€šã˜ã¦ç”Ÿã®æ„Ÿæƒ…ã¨è¦ªå¯†ãªçž¬é–“ã‚’ã‚­ãƒ£ãƒ—ãƒãƒ£ã—ã¾ã™ã€‚"
             : "Capturing raw emotions and intimate moments through striking portraiture."}
@@ -344,7 +344,7 @@ export default function Galeria() {
 
         {/* Full Heaven/Hell Banner */}
         <PromotionalBanner
-          title={isJapanese ? "ãƒ•ãƒ«ãƒ»ãƒ˜ãƒ–ãƒ³/ãƒ˜ãƒ«" : "FULL HEAVEN/HELL"}
+          title={isJapanese ? "フル・ヘブン/ヘル" : "FULL HEAVEN/HELL"}
           description={isJapanese
             ? "å…‰ã¨å½±ã®å¯¾æ¯”ã€ç¾Žã¨æ··ä¹±ã®äºŒé¢æ€§ã‚’æŽ¢ã‚‹å†™çœŸä½œå“ã€‚"
             : "Exploring the contrast between light and shadow, beauty and chaos."}
