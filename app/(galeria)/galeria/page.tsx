@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import { Box, Container } from "@mui/material";
 import Link from "next/link";
@@ -11,7 +11,7 @@ export default function Galeria() {
   const isJapanese = useLanguageToggle();
   const tableOfText = isJapanese ? mainPageConfig.tableOfLabelJa : mainPageConfig.tableOfLabel;
   const contentsText = isJapanese ? mainPageConfig.contentsLabelJa : mainPageConfig.contentsLabel;
-  const workWithMeText = isJapanese ? "一緒に働きましょう →" : mainPageConfig.workWithMeLink;
+  const workWithMeText = isJapanese ? "ä¸€ç·’ã«åƒãã¾ã—ã‚‡ã† â†’" : mainPageConfig.workWithMeLink;
 
   return (
     <div suppressHydrationWarning style={{ backgroundColor: mainPageConfig.backgroundColor, minHeight: "100vh", padding: "2.5rem 0" }}>
@@ -293,9 +293,9 @@ export default function Galeria() {
       {/* Promotional Banner */}
       <Box sx={{ mt: { xs: 6, md: 8 }, mb: { xs: 6, md: 8 } }}>
         <PromotionalBanner
-          title={isJapanese ? "ポートレート写真" : "ONI-OOH PHOTOGRAPHY"}
+          title={isJapanese ? "ãƒãƒ¼ãƒˆãƒ¬ãƒ¼ãƒˆå†™çœŸ" : "ONI-OOH PHOTOGRAPHY"}
           description={isJapanese
-            ? "親密で表現力豊かなポートレートを通じて個人の本質と人格をキャプチャします。"
+            ? "è¦ªå¯†ã§è¡¨ç¾åŠ›è±Šã‹ãªãƒãƒ¼ãƒˆãƒ¬ãƒ¼ãƒˆã‚’é€šã˜ã¦å€‹äººã®æœ¬è³ªã¨äººæ ¼ã‚’ã‚­ãƒ£ãƒ—ãƒãƒ£ã—ã¾ã™ã€‚"
             : "Capturing the essence and personality of individuals through intimate and expressive portraits."}
           imageUrl="/images/galeria/16.webp"
           linkHref="/galeria/portrait"
@@ -316,69 +316,11 @@ export default function Galeria() {
               textAlign: "right",
             }}
           >
-            {isJapanese ? "( フルハウス )" : "( FULL HOUSE )"}
+            {isJapanese ? "( ãƒ•ãƒ«ãƒã‚¦ã‚¹ )" : "( FULL HOUSE )"}
           </h2>
           <Box sx={{ width: "100%", borderBottom: "2px solid #2a2a2a" }} />
         </Box>
       </Box>
-
-      {/* Categories 07-09 List - Between Main Banner and Parallel Banners */}
-      <Container maxWidth="lg">
-        <Box sx={{ mt: { xs: 4, md: 6 }, mb: { xs: 8, md: 12 } }}>
-          {categories.slice(6, 9).map((category) => (
-            <Link key={category.id} href={category.href} style={{ textDecoration: "none" }}>
-              <Box
-                sx={{
-                  mb: 2,
-                  pb: 2,
-                  borderBottom: "1px solid #2a2a2a",
-                  cursor: "pointer",
-                  transition: "all 0.3s ease",
-                  "&:hover": {
-                    transform: "translateX(5px)",
-                  },
-                }}
-              >
-                <Box sx={{ display: "flex", gap: 2, alignItems: "flex-start" }}>
-                  <h3
-                    style={{
-                      fontSize: "clamp(1.2rem, 5vw, 3rem)",
-                      fontWeight: 900,
-                      color: "#ff0000",
-                      margin: 0,
-                    }}
-                  >
-                    {category.id}
-                  </h3>
-                  <Box>
-                    <h4
-                      style={{
-                        fontSize: "clamp(0.7rem, 2.5vw, 1.2rem)",
-                        fontWeight: 700,
-                        color: "#ff0000",
-                        margin: 0,
-                        letterSpacing: "0.5px",
-                        textTransform: "uppercase",
-                      }}
-                    >
-                      {category.title}
-                    </h4>
-                    <p
-                      style={{
-                        fontSize: "clamp(0.65rem, 2vw, 0.7rem)",
-                        color: "#666",
-                        margin: "0.2rem 0 0 0",
-                      }}
-                    >
-                      {category.description}
-                    </p>
-                  </Box>
-                </Box>
-              </Box>
-            </Link>
-          ))}
-        </Box>
-      </Container>
 
       {/* Parallel Promotional Banners */}
       <Box
@@ -392,9 +334,9 @@ export default function Galeria() {
       >
         {/* Shot Hearts Banner */}
         <PromotionalBanner
-          title={isJapanese ? "ショット・ハーツ" : "SHOT GALERRY"}
+          title={isJapanese ? "ã‚·ãƒ§ãƒƒãƒˆãƒ»ãƒãƒ¼ãƒ„" : "SHOT GALERRY"}
           description={isJapanese
-            ? "感情的なポートレートを通じて生の感情と親密な瞬間をキャプチャします。"
+            ? "æ„Ÿæƒ…çš„ãªãƒãƒ¼ãƒˆãƒ¬ãƒ¼ãƒˆã‚’é€šã˜ã¦ç”Ÿã®æ„Ÿæƒ…ã¨è¦ªå¯†ãªçž¬é–“ã‚’ã‚­ãƒ£ãƒ—ãƒãƒ£ã—ã¾ã™ã€‚"
             : "Capturing raw emotions and intimate moments through striking portraiture."}
           imageUrl="/images/galeria/9.png"
           linkHref="/galeria/shot-hearts"
@@ -402,14 +344,115 @@ export default function Galeria() {
 
         {/* Full Heaven/Hell Banner */}
         <PromotionalBanner
-          title={isJapanese ? "フル・ヘブン/ヘル" : "FULL HEAVEN/HELL"}
+          title={isJapanese ? "ãƒ•ãƒ«ãƒ»ãƒ˜ãƒ–ãƒ³/ãƒ˜ãƒ«" : "FULL HEAVEN/HELL"}
           description={isJapanese
-            ? "光と影の対比、美と混乱の二面性を探る写真作品。"
+            ? "å…‰ã¨å½±ã®å¯¾æ¯”ã€ç¾Žã¨æ··ä¹±ã®äºŒé¢æ€§ã‚’æŽ¢ã‚‹å†™çœŸä½œå“ã€‚"
             : "Exploring the contrast between light and shadow, beauty and chaos."}
           imageUrl="/images/galeria/11.png"
           linkHref="/galeria/full-haven-hell"
         />
       </Box>
+
+      {/* Categories 09-10 List with Alternating Layout */}
+      <Container maxWidth="lg">
+        <Box sx={{ mt: { xs: 4, md: 6 }, mb: { xs: 8, md: 12 } }}>
+          {categories.slice(8, 10).map((category, index) => (
+            <Link key={category.id} href={category.href} style={{ textDecoration: "none" }}>
+              <Box
+                sx={{
+                  display: "grid",
+                  gridTemplateColumns: { xs: "1fr", md: "1fr 1fr" },
+                  gap: { xs: 3, md: 6 },
+                  mb: 6,
+                  pb: 4,
+                  borderBottom: "2px solid #2a2a2a",
+                  cursor: "pointer",
+                  transition: "all 0.3s ease",
+                  "&:hover": {
+                    transform: "translateX(5px)",
+                  },
+                  // Alternate layout: even indices on left, odd on right
+                  ...(index % 2 === 1 && { direction: "rtl" }),
+                }}
+              >
+                {/* Text Content */}
+                <Box sx={{ display: "flex", gap: 2, alignItems: "flex-start", direction: "ltr" }}>
+                  <h3
+                    style={{
+                      fontSize: "clamp(2rem, 8vw, 3.5rem)",
+                      fontWeight: 900,
+                      color: "#ff0000",
+                      margin: 0,
+                      minWidth: "max-content",
+                    }}
+                  >
+                    {category.id}
+                  </h3>
+                  <Box>
+                    <h4
+                      style={{
+                        fontSize: "clamp(0.9rem, 3vw, 1.5rem)",
+                        fontWeight: 700,
+                        color: "#ff0000",
+                        margin: 0,
+                        letterSpacing: "0.5px",
+                        textTransform: "uppercase",
+                      }}
+                    >
+                      {category.title}
+                    </h4>
+                    <p
+                      style={{
+                        fontSize: "clamp(0.7rem, 2vw, 0.85rem)",
+                        color: "#666",
+                        margin: "0.5rem 0 0 0",
+                        lineHeight: 1.4,
+                      }}
+                    >
+                      {category.description}
+                    </p>
+                  </Box>
+                </Box>
+
+                {/* Images Grid */}
+                <Box
+                  sx={{
+                    display: "grid",
+                    gridTemplateColumns: "1fr 1fr",
+                    gap: 2,
+                    direction: "ltr",
+                  }}
+                >
+                  <Box
+                    sx={{
+                      width: "100%",
+                      paddingBottom: "100%",
+                      position: "relative",
+                      backgroundColor: "#d0d0d0",
+                      borderRadius: "4px",
+                      backgroundImage: `url(/images/galeria/${category.href.split("/").pop()}/1.png)`,
+                      backgroundSize: "cover",
+                      backgroundPosition: "center",
+                    }}
+                  />
+                  <Box
+                    sx={{
+                      width: "100%",
+                      paddingBottom: "100%",
+                      position: "relative",
+                      backgroundColor: "#d0d0d0",
+                      borderRadius: "4px",
+                      backgroundImage: `url(/images/galeria/${category.href.split("/").pop()}/2.png)`,
+                      backgroundSize: "cover",
+                      backgroundPosition: "center",
+                    }}
+                  />
+                </Box>
+              </Box>
+            </Link>
+          ))}
+        </Box>
+      </Container>
     </div>
   );
 }

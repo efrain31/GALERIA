@@ -15,6 +15,9 @@ export interface CategoryData {
   taglineKey: string;
   description: string;
   descriptionKey: string;
+  corriente?: string;
+  tecnica?: string;
+  materiales?: string;
   href: string;
   images: ImageData[];
   totalImages: number;
@@ -108,14 +111,33 @@ export const editorialImagesData: ImageData[] = [
 
 // Shot Hearts Gallery - PERRO
 export const shotHeartsImagesData: ImageData[] = [
-  { id: "shotHearts-1", src: "/images/galeria/perro/perro1.jpg", alt: "Shot Hearts 1" },
-  { id: "shotHearts-2", src: "/images/galeria/perro/perro2.jpg", alt: "Shot Hearts 2" },
-  { id: "shotHearts-3", src: "/images/galeria/perro/perro3.jpg", alt: "Shot Hearts 3" },
-  { id: "shotHearts-4", src: "/images/galeria/perro/perro4.jpg", alt: "Shot Hearts 4" },
-  { id: "shotHearts-5", src: "/images/galeria/perro/perro5.jpg", alt: "Shot Hearts 5" },
-  { id: "shotHearts-6", src: "/images/galeria/perro/perro6.jpg", alt: "Shot Hearts 6" },
-  { id: "shotHearts-7", src: "/images/galeria/perro/perro8.jpg", alt: "Shot Hearts 7" },
-  { id: "shotHearts-8", src: "/images/galeria/perro/perro1.jpg", alt: "Shot Hearts 8" },
+  { id: "shotHearts-1", src: "/images/galeria/shothearts/modelaje/m1.jpeg", alt: "Shot Hearts 1" },
+  { id: "shotHearts-2", src: "/images/galeria/shothearts/modelaje/m2.jpeg", alt: "Shot Hearts 2" },
+  { id: "shotHearts-3", src: "/images/galeria/shothearts/modelaje/m3.jpeg", alt: "Shot Hearts 3" },
+  { id: "shotHearts-4", src: "/images/galeria/shothearts/modelaje/m4.jpeg", alt: "Shot Hearts 4" },
+  { id: "shotHearts-5", src: "/images/galeria/shothearts/modelaje/m5.jpeg", alt: "Shot Hearts 5" },
+  { id: "shotHearts-6", src: "/images/galeria/shothearts/fotos/f1.png", alt: "Shot Hearts 6" },
+  { id: "shotHearts-7", src: "/images/galeria/shothearts/fotos/f2.jpeg", alt: "Shot Hearts 7" },
+  { id: "shotHearts-8", src: "/images/galeria/shothearts/fotos/f3.jpeg", alt: "Shot Hearts 8" },
+  { id: "shotHearts-9", src: "/images/galeria/shothearts/fotos/f4.jpeg", alt: "Shot Hearts 9" },
+  { id: "shotHearts-10", src: "/images/galeria/shothearts/fotos/f5.jpeg", alt: "Shot Hearts 10" },
+  { id: "shotHearts-11", src: "/images/galeria/shothearts/fotos/f6.png", alt: "Shot Hearts 11" },
+  { id: "shotHearts-12", src: "/images/galeria/shothearts/fotos/f7.jpeg", alt: "Shot Hearts 12" },
+  { id: "shotHearts-13", src: "/images/galeria/shothearts/fotos/f8.jpeg", alt: "Shot Hearts 13" },
+  { id: "shotHearts-14", src: "/images/galeria/shothearts/fotos/f9.jpeg", alt: "Shot Hearts 14" },
+  { id: "shotHearts-15", src: "/images/galeria/shothearts/fotos/f10.jpeg", alt: "Shot Hearts 15" },
+  { id: "shotHearts-16", src: "/images/galeria/shothearts/fotos/f11.jpeg", alt: "Shot Hearts 16" },
+  { id: "shotHearts-17", src: "/images/galeria/shothearts/fotos/f12.jpeg", alt: "Shot Hearts 17" },
+  { id: "shotHearts-18", src: "/images/galeria/shothearts/disenos/d1.jpeg", alt: "Shot Hearts 18" },
+  { id: "shotHearts-19", src: "/images/galeria/shothearts/disenos/d2.jpeg", alt: "Shot Hearts 19" },
+  { id: "shotHearts-20", src: "/images/galeria/shothearts/disenos/d3.jpeg", alt: "Shot Hearts 20" },
+
+
+
+
+
+
+
 ];
 
 // Perro Gallery
@@ -128,6 +150,11 @@ export const perroImagesData: ImageData[] = [
   { id: "perro-6", src: "/images/galeria/perro/perro6.jpg", alt: "Perro photograph 6" },
   { id: "perro-7", src: "/images/galeria/perro/perro7.jpg", alt: "Perro photograph 7" },
   { id: "perro-8", src: "/images/galeria/perro/perro8.jpg", alt: "Perro photograph 8" },
+];
+
+// Noemi Gallery
+export const noemiImagesData: ImageData[] = [
+  // Las imágenes se agregarán manualmente
 ];
 
 // Full Heaven/Hell Gallery - Mixed Collection (Original)
@@ -170,8 +197,11 @@ export const categories: CategoryData[] = [
     titleKey: "portraitTitle",
     tagline: "THE BEAUTY OF IMPERFECTION",
     taglineKey: "portraitTagline",
-    description: "Capturing the essence and personality of individuals through intimate and expressive portraits.",
+    description: "La exencia de uno tengu japones referenciando el Ukyo-e.",
     descriptionKey: "portraitDescription",
+    corriente: "Ukiyo-e Moderno",
+    tecnica: "Oleo sobrelienzo",
+    materiales: "Oleo, tinta china y tinta fluorescente sobre lienzo",
     href: "/galeria/portrait",
     images: portraitImagesData,
     totalImages: portraitImagesData.length,
@@ -182,8 +212,11 @@ export const categories: CategoryData[] = [
     titleKey: "commercialTitle",
     tagline: "PRODUCT EXCELLENCE",
     taglineKey: "commercialTagline",
-    description: "Professional commercial and product photography that showcases your brand.",
+    description: "Mauricio representa la obscuridad que los dias calidos pueden llevar  consigo.El como una persona puede sufrir en sus emociones o pensamientos.",
     descriptionKey: "commercialDescription",
+    corriente: "Oscurantismo",
+    tecnica: "Impresionismo",
+    materiales: "Espatula,pinceladas seguras cargadas de pigmentos en pastados de vivos colores, Acrilico,vinilico, Granos de cafe  sobre manta de algodon.",
     href: "/galeria/commercial",
     images: commercialImagesData,
     totalImages: commercialImagesData.length,
@@ -194,8 +227,11 @@ export const categories: CategoryData[] = [
     titleKey: "landscapeTitle",
     tagline: "NATURE'S GRANDEUR",
     taglineKey: "landscapeTagline",
-    description: "Breathtaking landscape and nature photography from around the world.",
-    descriptionKey: "landscapeDescription",
+    description: "",
+    descriptionKey: "La hilandera, quien hilaba el hilo de la vida y presidía los nacimientos.",
+    corriente: "Sin corriente definida, estilo personal.",
+    tecnica: "Carboncillo y lápiz con trazos firmes y descriptivos, resaltando la textura y los detalles de la silueta.",
+    materiales: "Lápiz, carboncillo,, sobre manta de lino.",
     href: "/galeria/landscape",
     images: landscapeImagesData,
     totalImages: landscapeImagesData.length,
@@ -206,8 +242,11 @@ export const categories: CategoryData[] = [
     titleKey: "eventTitle",
     tagline: "MOMENTS CAPTURED",
     taglineKey: "eventTagline",
-    description: "Dynamic event coverage that captures the energy and emotion of your special occasions.",
+    description: "Busca transmitir la nostalgia de las tardes pasadas y la melancolia de los recuerdos...",
     descriptionKey: "eventDescription",
+    corriente: "Impresionismo.",
+    tecnica: "Pincelas fuertes cargadas de pigmentos en pastados de vivos colores.",
+    materiales: "Acrilico y vinilico sobre manta de algodon..",
     href: "/galeria/event",
     images: eventImagesData,
     totalImages: eventImagesData.length,
@@ -218,8 +257,11 @@ export const categories: CategoryData[] = [
     titleKey: "fashionTitle",
     tagline: "STYLE IN MOTION",
     taglineKey: "fashionTagline",
-    description: "High-fashion photography that brings style and elegance to life.",
+    description: "La que medía la longitud del hilo, determinando la duración de la vida y los acontecimientos que ocurrirían.",
     descriptionKey: "fashionDescription",
+    corriente: "Realismo",
+    tecnica: "Tecnica mixta de pintura y dibujo.",
+    materiales: "Lápiz, carboncillo, acuarela y acrílico sobre manta de algodón y madera.",
     href: "/galeria/fashion",
     images: fashionImagesData,
     totalImages: fashionImagesData.length,
@@ -230,8 +272,11 @@ export const categories: CategoryData[] = [
     titleKey: "editorialTitle",
     tagline: "VISUAL STORYTELLING",
     taglineKey: "editorialTagline",
-    description: "Editorial and artistic photography that tells compelling visual stories.",
+    description: "La pintura esta basada en un conjunto de replicas de autotres con el Greco,pannini entre otros; Con enfoque a los comerciantes en personalidades actuales a travez dela mezcla de fasismo,calsismo, odio entre otros demostrando que dios no solo ama si no tambien odia.",
     descriptionKey: "editorialDescription",
+    corriente: "IMpresionismo / Surrealismo",
+    tecnica: "Pincelas ligeras  sobre capas  para buscar la profundidad y el movimiento de la escena, resaltando la expresion de los personajes.",
+    materiales: "Acrilico y vinilico sobre manta de algodon.",
     href: "/galeria/editorial",
     images: editorialImagesData,
     totalImages: editorialImagesData.length,
@@ -242,8 +287,11 @@ export const categories: CategoryData[] = [
     titleKey: "shotHeartsTitle",
     tagline: "EMOTIONAL PORTRAITS",
     taglineKey: "shotHeartsTagline",
-    description: "Capturing raw emotions and intimate moments through striking portraiture.",
+    description: "Coleccion de trabajos, Fotografías , Dibujos, entre otros.",
     descriptionKey: "shotHeartsDescription",
+    corriente: "Fotografía conceptual de retrato",
+    tecnica: "Fotografía de retrato emocional y diseño gráfico",
+    materiales: "Cámara digital, software de edición, composición digital",
     href: "/galeria/shot-hearts",
     images: shotHeartsImagesData,
     totalImages: shotHeartsImagesData.length,
@@ -254,8 +302,11 @@ export const categories: CategoryData[] = [
     titleKey: "fullHavenHellTitle",
     tagline: "DUALITY IN LIGHT",
     taglineKey: "fullHavenHellTagline",
-    description: "Exploring the contrast between light and shadow, beauty and chaos.",
+    description: "Resumen de las obras.",
     descriptionKey: "fullHavenHellDescription",
+    corriente: "Fotografía conceptual de contraste",
+    tecnica: "Fotografía de composición y dualidad visual",
+    materiales: "Cámara digital, iluminación contrastante, edición avanzada",
     href: "/galeria/full-haven-hell",
     images: fullHavenHellImagesData,
     totalImages: fullHavenHellImagesData.length,
@@ -264,13 +315,31 @@ export const categories: CategoryData[] = [
     id: "09",
     title: "3:00:00 - AM",
     titleKey: "perroTitle",
-    tagline: "PET PHOTOGRAPHY",
+    tagline: "THE MIDNIGHT MOMENT",
     taglineKey: "perroTagline",
-    description: "Capturin the playful spirit and unique personality of our beloved companions.",
+    description: "Haz imaginado que ve tu perro en las noches fuera de tu puerta ?.",
     descriptionKey: "perroDescription",
+    corriente: "Oscurantismo y realismo",
+    tecnica: "Pinceladas seguras cargadas de pigmentos en pastados de vivos colores.",
+    materiales: "Acrilico y vinilico sobre manta de algodon, ",
     href: "/galeria/perro",
     images: perroImagesData,
     totalImages: perroImagesData.length,
+  },
+  {
+    id: "10",
+    title: "Le vie en rose",
+    titleKey: "noemiTitle",
+    tagline: "THE BEAUTY OF LIFE",
+    taglineKey: "noemiTagline",
+    description: "Italia en 1975.",
+    descriptionKey: "noemiDescription",
+    corriente: "Impresionismo y realismo",
+    tecnica: "Pinceladas suaves y detalladas, capturando la esencia de la vida cotidiana.",
+    materiales: "Oleo,acrilico y vinilico sobre manta de algodon, ",
+    href: "/galeria/noemi",
+    images: noemiImagesData,
+    totalImages: noemiImagesData.length,
   },
 ];
 

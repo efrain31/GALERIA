@@ -11,6 +11,9 @@ export default function EventPage() {
       number={eventCategory.id}
       description={eventCategory.description}
       images={eventImagesData}
+      corriente={eventCategory.corriente}
+      tecnica={eventCategory.tecnica}
+      materiales={eventCategory.materiales}
     />
   );
 }

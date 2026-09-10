@@ -11,9 +11,12 @@ interface LandscapeLayoutProps {
   id: string;
   title: string;
   description: string;
+  corriente?: string;
+  tecnica?: string;
+  materiales?: string;
 }
 
-export default function LandscapeLayout({ id, title, description }: LandscapeLayoutProps) {
+export default function LandscapeLayout({ id, title, description, corriente, tecnica, materiales }: LandscapeLayoutProps) {
   const lightbox = useLightbox();
   const isJapanese = useLanguageToggle();
   const workWithMeText = isJapanese ? "一緒に働きましょう →" : "WORK WITH ME →";
@@ -96,6 +99,47 @@ export default function LandscapeLayout({ id, title, description }: LandscapeLay
             >
               {description}
             </p>
+
+            {(corriente || tecnica || materiales) && (
+              <Box sx={{ mb: 2 }}>
+                {corriente && (
+                  <p
+                    style={{
+                      fontSize: "0.85rem",
+                      lineHeight: 1.6,
+                      color: "#999",
+                      margin: "0.3rem 0",
+                    }}
+                  >
+                    Corriente: {corriente}
+                  </p>
+                )}
+                {tecnica && (
+                  <p
+                    style={{
+                      fontSize: "0.85rem",
+                      lineHeight: 1.6,
+                      color: "#999",
+                      margin: "0.3rem 0",
+                    }}
+                  >
+                    Tecnica: {tecnica}
+                  </p>
+                )}
+                {materiales && (
+                  <p
+                    style={{
+                      fontSize: "0.85rem",
+                      lineHeight: 1.6,
+                      color: "#999",
+                      margin: "0.3rem 0",
+                    }}
+                  >
+                    Materiales: {materiales}
+                  </p>
+                )}
+              </Box>
+            )}
 
             {/* Work With Me Link */}
             <Link href="/galeria/contact" style={{ textDecoration: "none" }}>

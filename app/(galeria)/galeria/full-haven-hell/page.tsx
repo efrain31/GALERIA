@@ -13,6 +13,9 @@ export default function FullHavenHellPage() {
       totalImages={havenHellCategory.totalImages}
       number={havenHellCategory.id}
       titleKey="fullHavenHellTitle"
+      corriente={havenHellCategory.corriente}
+      tecnica={havenHellCategory.tecnica}
+      materiales={havenHellCategory.materiales}
     />
   );
 }

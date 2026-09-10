@@ -17,6 +17,9 @@ interface SliderImageGridLayoutProps {
   images: ImageData[];
   totalImages?: number;
   titleKey?: string;
+  corriente?: string;
+  tecnica?: string;
+  materiales?: string;
 }
 
 export default function SliderImageGridLayout({
@@ -27,6 +30,9 @@ export default function SliderImageGridLayout({
   images,
   totalImages = 8,
   titleKey = "fashionTitle",
+  corriente,
+  tecnica,
+  materiales,
 }: SliderImageGridLayoutProps) {
   const imagesPerPage = 4;
   const totalPages = Math.ceil(images.length / imagesPerPage);
@@ -91,6 +97,47 @@ export default function SliderImageGridLayout({
           >
             {description}
           </p>
+
+          {(corriente || tecnica || materiales) && (
+            <Box sx={{ mt: 2 }}>
+              {corriente && (
+                <p
+                  style={{
+                    fontSize: "clamp(0.75rem, 2.2vw, 0.85rem)",
+                    lineHeight: 1.6,
+                    color: "#2a2a2a",
+                    margin: "0.3rem 0",
+                  }}
+                >
+                  Corriente: {corriente}
+                </p>
+              )}
+              {tecnica && (
+                <p
+                  style={{
+                    fontSize: "clamp(0.75rem, 2.2vw, 0.85rem)",
+                    lineHeight: 1.6,
+                    color: "#2a2a2a",
+                    margin: "0.3rem 0",
+                  }}
+                >
+                  Tecnica: {tecnica}
+                </p>
+              )}
+              {materiales && (
+                <p
+                  style={{
+                    fontSize: "clamp(0.75rem, 2.2vw, 0.85rem)",
+                    lineHeight: 1.6,
+                    color: "#2a2a2a",
+                    margin: "0.3rem 0",
+                  }}
+                >
+                  Materiales: {materiales}
+                </p>
+              )}
+            </Box>
+          )}
         </Box>
 
         <Box sx={{ display: "grid", gridTemplateColumns: { xs: "1fr", md: "repeat(2, 1fr)" }, gap: { xs: 1.5, md: 3 }, mb: { xs: 3, md: 4 } }}>

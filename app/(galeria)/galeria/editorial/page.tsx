@@ -13,6 +13,9 @@ export default function EditorialPage() {
       totalImages={editorialCategory.totalImages}
       number={editorialCategory.id}
       titleKey="editorialTitle"
+      corriente={editorialCategory.corriente}
+      tecnica={editorialCategory.tecnica}
+      materiales={editorialCategory.materiales}
     />
   );
 }

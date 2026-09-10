@@ -16,6 +16,9 @@ interface FilterableGalleryLayoutProps {
   images: ImageData[];
   totalImages?: number;
   titleKey?: string;
+  corriente?: string;
+  tecnica?: string;
+  materiales?: string;
 }
 
 type LayoutType = 'masonry' | 'grid' | 'tall' | 'double';
@@ -28,6 +31,9 @@ export default function FilterableGalleryLayout({
   images,
   totalImages = 8,
   titleKey = 'fullHavenHellTitle',
+  corriente,
+  tecnica,
+  materiales,
 }: FilterableGalleryLayoutProps) {
   const [layout, setLayout] = useState<LayoutType>('masonry');
   const lightbox = useLightbox();
@@ -170,6 +176,47 @@ export default function FilterableGalleryLayout({
           >
             {description}
           </p>
+
+          {(corriente || tecnica || materiales) && (
+            <Box sx={{ mt: 2 }}>
+              {corriente && (
+                <p
+                  style={{
+                    fontSize: 'clamp(0.75rem, 2.2vw, 0.85rem)',
+                    lineHeight: 1.6,
+                    color: '#2a2a2a',
+                    margin: '0.3rem 0',
+                  }}
+                >
+                  Corriente: {corriente}
+                </p>
+              )}
+              {tecnica && (
+                <p
+                  style={{
+                    fontSize: 'clamp(0.75rem, 2.2vw, 0.85rem)',
+                    lineHeight: 1.6,
+                    color: '#2a2a2a',
+                    margin: '0.3rem 0',
+                  }}
+                >
+                  Tecnica: {tecnica}
+                </p>
+              )}
+              {materiales && (
+                <p
+                  style={{
+                    fontSize: 'clamp(0.75rem, 2.2vw, 0.85rem)',
+                    lineHeight: 1.6,
+                    color: '#2a2a2a',
+                    margin: '0.3rem 0',
+                  }}
+                >
+                  Materiales: {materiales}
+                </p>
+              )}
+            </Box>
+          )}
         </Box>
 
         {/* Navigation Bar */}

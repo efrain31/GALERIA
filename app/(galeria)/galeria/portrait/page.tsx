@@ -15,6 +15,9 @@ export default function PortraitPage() {
       totalImages={portraitCategory.totalImages}
       titleKey={portraitCategory.titleKey}
       taglineKey={portraitCategory.taglineKey}
+      corriente={portraitCategory.corriente}
+      tecnica={portraitCategory.tecnica}
+      materiales={portraitCategory.materiales}
     />
   );
 }

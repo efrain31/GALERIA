@@ -25,11 +25,11 @@ export default function ShotHeartsPage() {
       sliderTitleKey="galleryTitle"
       dualImages={{
         left: {
-          src: "/images/galeria/3.png",
+          src: "/images/galeria/shothearts/modelaje/m2.jpeg",
           alt: "Shot Hearts dual image left"
         },
         right: {
-          src: "/images/galeria/4.png",
+          src: "/images/galeria/shothearts/modelaje/m4.jpeg",
           alt: "Shot Hearts dual image right"
         }
       }}
@@ -47,6 +47,9 @@ export default function ShotHeartsPage() {
           titleKey: 'highlightsTitle'
         }
       ]}
+      corriente={shotHeartsCategory.corriente}
+      tecnica={shotHeartsCategory.tecnica}
+      materiales={shotHeartsCategory.materiales}
     />
   );
 }

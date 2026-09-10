@@ -12,6 +12,9 @@ export default function CommercialPage() {
       description={commercialCategory.description}
       images={commercialImagesData}
       totalImages={commercialCategory.totalImages}
+      corriente={commercialCategory.corriente}
+      tecnica={commercialCategory.tecnica}
+      materiales={commercialCategory.materiales}
     />
   );
 }

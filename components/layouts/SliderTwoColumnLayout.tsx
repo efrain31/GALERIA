@@ -19,6 +19,9 @@ interface SliderTwoColumnLayoutProps {
   totalImages?: number;
   titleKey?: string;
   taglineKey?: string;
+  corriente?: string;
+  tecnica?: string;
+  materiales?: string;
 }
 
 export default function SliderTwoColumnLayout({
@@ -31,6 +34,9 @@ export default function SliderTwoColumnLayout({
   totalImages = 12,
   titleKey = "portraitTitle",
   taglineKey = "portraitTagline",
+  corriente,
+  tecnica,
+  materiales,
 }: SliderTwoColumnLayoutProps) {
   const imagesPerPage = 6;
   const totalPages = Math.ceil(images.length / imagesPerPage);
@@ -107,6 +113,47 @@ export default function SliderTwoColumnLayout({
             >
               {description}
             </p>
+
+            {(corriente || tecnica || materiales) && (
+              <Box sx={{ mt: 2 }}>
+                {corriente && (
+                  <p
+                    style={{
+                      fontSize: "clamp(0.75rem, 2.2vw, 0.85rem)",
+                      lineHeight: 1.6,
+                      color: "#2a2a2a",
+                      margin: "0.3rem 0",
+                    }}
+                  >
+                    Corriente: {corriente}
+                  </p>
+                )}
+                {tecnica && (
+                  <p
+                    style={{
+                      fontSize: "clamp(0.75rem, 2.2vw, 0.85rem)",
+                      lineHeight: 1.6,
+                      color: "#2a2a2a",
+                      margin: "0.3rem 0",
+                    }}
+                  >
+                    Tecnica: {tecnica}
+                  </p>
+                )}
+                {materiales && (
+                  <p
+                    style={{
+                      fontSize: "clamp(0.75rem, 2.2vw, 0.85rem)",
+                      lineHeight: 1.6,
+                      color: "#2a2a2a",
+                      margin: "0.3rem 0",
+                    }}
+                  >
+                    Materiales: {materiales}
+                  </p>
+                )}
+              </Box>
+            )}
           </Box>
 
           {/* Right Column - Gallery Grid with Slider */}

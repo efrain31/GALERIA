@@ -12,6 +12,9 @@ export default function FashionPage() {
       description={fashionCategory.description}
       images={fashionImagesData}
       totalImages={fashionCategory.totalImages}
+      corriente={fashionCategory.corriente}
+      tecnica={fashionCategory.tecnica}
+      materiales={fashionCategory.materiales}
     />
   );
 }

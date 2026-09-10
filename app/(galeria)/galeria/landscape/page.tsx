@@ -11,6 +11,9 @@ export default function LandscapePage() {
       number={landscapeCategory.id}
       description={landscapeCategory.description}
       images={landscapeImagesData}
+      corriente={landscapeCategory.corriente}
+      tecnica={landscapeCategory.tecnica}
+      materiales={landscapeCategory.materiales}
     />
   );
 }

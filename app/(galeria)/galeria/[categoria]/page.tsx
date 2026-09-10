@@ -19,7 +19,7 @@ export default function CategoriaGaleria({
   const data = categories.find(cat => cat.href === `/galeria/${categoria}`) || categories[0];
 
   if (categoria === "landscape") {
-    return <LandscapeLayout id={data.id} title={data.title} description={data.description} />;
+    return <LandscapeLayout id={data.id} title={data.title} description={data.description} corriente={data.corriente} tecnica={data.tecnica} materiales={data.materiales} />;
   }
 
   return (
